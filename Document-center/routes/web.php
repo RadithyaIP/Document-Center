@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DokumenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::resource('Dokumen', DokumenController::class);
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
