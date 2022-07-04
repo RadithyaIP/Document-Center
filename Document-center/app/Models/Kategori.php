@@ -11,4 +11,7 @@ class Kategori extends Model
     protected $fillable = [
         'nama',
     ];
+    public function dokumens(){
+        return $this->hasMany('App\Models\Dokumen');
+    }
 }

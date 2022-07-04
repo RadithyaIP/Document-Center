@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dokumen extends Model
+class Divisi extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,7 @@ class Dokumen extends Model
         'nama_dokumen',
         'keterangan',
     ];
-    public function kategoris(){
-        return $this->belongsTo('App\Models\Kategori');
-    }
     public function users(){
-        return $this->belongsTo('App\Models\User');
+        return $this->hasMany('App\Models\User');
     }
 }

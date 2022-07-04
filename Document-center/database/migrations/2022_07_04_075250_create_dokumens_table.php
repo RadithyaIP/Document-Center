@@ -17,10 +17,14 @@ class CreateDokumensTable extends Migration
             $table->id();
             $table->String('no_dokumen');
             $table->String('nama_dokumen');
-            $table->timestamps();
             $table->boolean('is_active')->default(1);
             $table->String('keterangan');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('users');
             $table->boolean('is_deleted')->default(0);
+            $table->timestamps();
         });
     }
 
