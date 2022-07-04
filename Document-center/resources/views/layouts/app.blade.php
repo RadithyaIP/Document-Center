@@ -488,7 +488,7 @@
     </div>
     <!-- Main Menu area End-->
    <!--content-->
-   @yield('content')
+  @yield('content')
    <!--End content-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -563,16 +563,11 @@
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('assets') }}/js/plugins.js"></script>
-	<!--  Chat JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/chat/moment.min.js"></script>
-    <script src="{{ asset('assets') }}/js/chat/jquery.chat.js"></script>
+
     <!-- main JS
 		============================================ -->
     <script src="{{ asset('assets') }}/js/main.js"></script>
-	<!-- tawk chat JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/tawk-chat.js"></script>
+
 </body>
 
 </html>
