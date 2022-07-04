@@ -17,7 +17,6 @@ class CreateDokumensTable extends Migration
             $table->id();
             $table->String('no_dokumen');
             $table->String('nama_dokumen');
-            $table->String('no_dokumen');
             $table->timestamps();
             $table->boolean('is_active')->default(1);
             $table->String('keterangan');
