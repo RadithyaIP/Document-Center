@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DokumenController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('Dokumen', DokumenController::class);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

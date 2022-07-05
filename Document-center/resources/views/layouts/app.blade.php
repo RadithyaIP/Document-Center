@@ -75,7 +75,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="header-top-menu">
                         <ul class="nav navbar-nav notika-top-nav">
-                            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-menus"></i></span></a>
+                            <li class="nav-item"><a href="{{ route('logout') }}" role="button" ><span><i class="notika-icon notika-menus"></i></span></a>
                                 <div role="menu" class="dropdown-menu message-dd task-dd animated zoomIn">
                                     <div class="hd-mg-tt">
                                         <h2>Logout</h2>
@@ -241,4 +241,3 @@
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('assets') }}/js/plugins.js"></script>
-   
