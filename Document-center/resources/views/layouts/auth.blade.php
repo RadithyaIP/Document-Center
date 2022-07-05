@@ -1,131 +1,72 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
+
+<!-- Mirrored from themesbrand.com/velzon/html/material/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 03:21:56 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login Admin</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets') }}/img/ship.png">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap.min.css">
-    <!-- font awesome CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/owl.carousel.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/owl.theme.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/normalize.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/wave/waves.min.css">
-    <!-- Notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/notika-custom-icon.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <meta charset="utf-8" />
+    <title>Dashboard | Velzon - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.ico">
+
+    <!-- jsvectormap css -->
+    <link href="{{ asset('assets') }}/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Swiper slider css-->
+    <link href="{{ asset('assets') }}/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="{{ asset('assets') }}/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('assets') }}/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ asset('assets') }}/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{ asset('assets') }}/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Login Register area Start-->
-    @yield('content')
-    <!-- Login Register area End-->
-    <!-- jquery
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/jquery-price-slider.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/owl.carousel.min.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/jquery.scrollUp.min.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/meanmenu/jquery.meanmenu.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/counterup/jquery.counterup.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counterup/waypoints.min.js"></script>
-    <script src="{{ asset('assets') }}/js/counterup/counterup-active.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="{{ asset('assets') }}/js/sparkline/sparkline-active.js"></script>
-    <!-- flot JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/flot/jquery.flot.js"></script>
-    <script src="{{ asset('assets') }}/js/flot/jquery.flot.resize.js"></script>
-    <script src="{{ asset('assets') }}/js/flot/flot-active.js"></script>
-    <!-- knob JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/knob/jquery.knob.js"></script>
-    <script src="{{ asset('assets') }}/js/knob/jquery.appear.js"></script>
-    <script src="{{ asset('assets') }}/js/knob/knob-active.js"></script>
-    <!--  Chat JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/chat/jquery.chat.js"></script>
-    <!--  wave JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/wave/waves.min.js"></script>
-    <script src="{{ asset('assets') }}/js/wave/wave-active.js"></script>
-    <!-- icheck JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/icheck/icheck.min.js"></script>
-    <script src="{{ asset('assets') }}/js/icheck/icheck-active.js"></script>
-    <!--  todo JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/todo/jquery.todo.js"></script>
-    <!-- Login JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/login/login-action.js"></script>
-    <!-- plugins JS
-		============================================ -->
+      @yield('content')
+ 
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ asset('assets') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets') }}/libs/simplebar/simplebar.min.js"></script>
+    <script src="{{ asset('assets') }}/libs/node-waves/waves.min.js"></script>
+    <script src="{{ asset('assets') }}/libs/feather-icons/feather.min.js"></script>
+    <script src="{{ asset('assets') }}/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="{{ asset('assets') }}/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="{{ asset('assets') }}/js/main.js"></script>
+
+    <!-- apexcharts -->
+    <script src="{{ asset('assets') }}/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Vector map-->
+    <script src="{{ asset('assets') }}/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="{{ asset('assets') }}/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!--Swiper slider js-->
+    <script src="{{ asset('assets') }}/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="{{ asset('assets') }}/js/pages/dashboard-ecommerce.init.js"></script>
+
+    <!-- App js -->
+    <script src="{{ asset('assets') }}/js/app.js"></script>
 </body>
 
+
+<!-- Mirrored from themesbrand.com/velzon/html/material/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 03:22:46 GMT -->
 </html>
