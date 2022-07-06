@@ -16,8 +16,10 @@ use App\Http\Controllers\DokumenController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+
 
 Auth::routes();
 Route::resource('Dokumen', DokumenController::class);

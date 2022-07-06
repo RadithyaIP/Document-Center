@@ -24,7 +24,8 @@ class DokumenController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('Dokumen.create');
     }
 
     /**
