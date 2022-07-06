@@ -22,7 +22,7 @@
                     <div class="text-center mt-sm-5 mb-4 text-white-50">
                         <div>
                             <a href="index-2.html" class="d-inline-block auth-logo">
-                                <img src="assets/images/logo-2.png" alt="" height="100%" width="150%">
+                                <img src="assets/images/logo3.png" alt="" height="20%" width="20%">
                             </a>
                         </div>
                     </div>
@@ -38,7 +38,6 @@
                             <div class="card-body p-4">
                                 <div class="text-center mt-2">
                                     <h5 class="text-primary">Login Page</h5>
-                                    <p class="text-muted">Sign in to continue to Document Center.</p>
                                 </div>
                                 <div class="p-2 mt-4">
                                     <form action="https://themesbrand.com/velzon/html/material/index.html">
