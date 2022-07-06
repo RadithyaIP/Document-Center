@@ -1104,7 +1104,7 @@
                 <div class="collapse menu-dropdown" id="sidebarForms">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a href="forms-elements.html" class="nav-link" data-key="t-basic-elements">Basic
+                            <a href="{{ route('Dokumen.create') }}" class="nav-link" data-key="t-basic-elements">Basic
                                 Elements</a>
                         </li>
                         <li class="nav-item">
