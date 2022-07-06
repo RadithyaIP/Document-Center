@@ -10,9 +10,7 @@ class Divisi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'no_dokumen',
-        'nama_dokumen',
-        'keterangan',
+        'nama',
     ];
     public function users(){
         return $this->hasMany('App\Models\User');

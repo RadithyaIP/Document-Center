@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Divisi;
 class DivisiSeeder extends Seeder
 {
@@ -13,15 +14,11 @@ class DivisiSeeder extends Seeder
      */
     public function run()
     {
-        $divisis=[
-            [
-            'id' => 1,
-            'name' => 'IT',
-        ],
-        [
-            'id' => 2,
-            'name' => 'AK',
-        ],
-    ];
+        DB::table('divisis')->insert([
+            'nama' => ('IT')
+        ]);
+        DB::table('divisis')->insert([
+            'nama' => ('HCM')
+        ]);
     }
 }

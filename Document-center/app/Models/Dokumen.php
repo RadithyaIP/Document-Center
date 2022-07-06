@@ -11,7 +11,11 @@ class Dokumen extends Model
 
     protected $fillable = [
         'no_dokumen',
+        'kategori',
+        'user_id',
+        'divisi',
         'nama_dokumen',
+        'revisi',
         'keterangan',
     ];
     public function kategoris(){

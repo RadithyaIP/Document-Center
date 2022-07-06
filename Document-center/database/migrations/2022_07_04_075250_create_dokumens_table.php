@@ -16,13 +16,14 @@ class CreateDokumensTable extends Migration
         Schema::create('dokumens', function (Blueprint $table) {
             $table->id();
             $table->String('no_dokumen');
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('users');
             $table->String('nama_dokumen');
-            $table->boolean('is_active')->default(1);
             $table->String('keterangan');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('kategori_id');
-            $table->foreign('kategori_id')->references('id')->on('users');
+            $table->datetime('revisi');
+            $table->boolean('is_active')->default(1);
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
