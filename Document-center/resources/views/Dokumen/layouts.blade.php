@@ -15,7 +15,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.ico">
 
-    
+
     <!-- dropzone css -->
     <link rel="stylesheet" href="assets/libs/dropzone/dropzone.css" type="text/css" />
 
@@ -243,39 +243,67 @@
                             </button>
                         </div>
                         <div class="dropdown ms-sm-3 header-item topbar-user">
-                            <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user"
-                                        src="{{ asset('assets') }}/images/users/avatar-1.jpg" alt="Header Avatar">
-                                    <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna
-                                            Adame</span>
-                                        <span
-                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
-                                    </span>
-                                </span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <h6 class="dropdown-header">Welcome Anna!</h6>
-                                <a class="dropdown-item" href="pages-profile.html">
-                                    <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Profile</span>
-                                </a>
-                                <a class="dropdown-item" href="pages-faqs.html"><i
-                                        class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Help</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="pages-profile-settings.html">
-                                    <span class="badge bg-soft-success text-success mt-1 float-end">New</span>
-                                    <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Settings</span>
-                                </a>
-                                <a class="dropdown-item" href="auth-logout-basic.html"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle" data-key="t-logout">Logout</span>
+
+                            <div class="dropdown ms-sm-3 header-item topbar-user">
+                                <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="d-flex align-items-center">
+                                        <img class="rounded-circle header-profile-user"
+                                            src="{{ asset('assets') }}/images/users/avatar-1.jpg" alt="Header Avatar">
+                                        <span class="text-start ms-xl-2">
+                                            @guest
+                                            @if (Route::has('login'))
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            </li>
+                                            @endif
+
+                                            @if (Route::has('register'))
+                                            <li class="nav-item">
+                                                <a class="nav-link"
+                                                    href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            </li>
+                                            @endif
+                                            @else
+                                            <!-- item-->
+                                            <h6 class="dropdown-header"></h6>
+                                            <a class="dropdown-item" href="#" role="button" aria-haspopup="true"
+                                                aria-expanded="false" v-pre>
+                                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                                    {{ Auth::user()->name }}
+                                                </span>
+                                            </a>
+                                        </span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    </a> <a class="dropdown-item" href="pages-profile.html">
+                                        <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Profile</span>
+                                    </a>
+                                    <a class="dropdown-item" href="pages-faqs.html"><i
+                                            class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Help</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="pages-profile-settings.html">
+                                        <span class="badge bg-soft-success text-success mt-1 float-end">New</span>
+                                        <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Settings</span>
+                                    </a>
+                                    <a class="dropdown-item"> <i
+                                            class="mdi mdi-logout text-muted fs-16 align-middle me-1"
+                                            href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"></i>
+                                        <span class="align-middle">Logout</span>
+
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                </div>
+                                </li>
+                                @endguest
                                 </a>
                             </div>
                         </div>
@@ -1089,7 +1117,8 @@
                     <div class="collapse menu-dropdown" id="sidebarForms">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('Dokumen.create') }}" class="nav-link" data-key="t-basic-elements">Basic
+                                <a href="{{ route('Dokumen.create') }}" class="nav-link"
+                                    data-key="t-basic-elements">Basic
                                     Elements</a>
                             </li>
                             <li class="nav-item">
