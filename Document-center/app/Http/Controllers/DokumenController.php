@@ -30,7 +30,8 @@ class DokumenController extends Controller
     {
         $users = auth()->user();
         $kategoris = Kategori::all();
-        return \view('Dokumen.create', compact ('users', 'kategoris'));
+        $divisis = Divisi::all();
+        return \view('Dokumen.create', compact ('users', 'kategoris', 'divisis'));
     }
 
     /**
