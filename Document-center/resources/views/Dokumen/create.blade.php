@@ -13,7 +13,7 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm">
+                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
@@ -36,7 +36,12 @@
                         <div class="mb-3">
                             <label for="divisi" class="form-label">Divisi</label>
                             <select name="divisi" class="form-control" id="divisi">
-                                <option value="{{$users->divisi_id}}">{{ "$users->divisi_id" }}</option>
+                            @foreach ($divisis as $divisi)
+                            @if ($divisi->id  == $users->divisi_id)
+                                <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}</option>
+                            @endif
+                            @endforeach
+                            
                             </select>
                         </div>
                         <div class="mb-3">
@@ -66,7 +71,7 @@
 
                                         <div class="dropzone">
                                             <div class="fallback">
-                                                <input name="file" type="file" multiple="multiple">
+                                                <input type="file" name="file" multiple="multiple">
                                             </div>
                                             <div class="dz-message needsclick">
                                                 <div class="mb-3">
