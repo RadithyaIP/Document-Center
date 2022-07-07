@@ -14,7 +14,7 @@
                             <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                         </div>
                         <div class="mt-3 mt-lg-0">
-                            <form action="javascript:void(0);">
+                            <form action="{{ route('Dokumen.create') }}">
                                 <div class="row g-3 mb-0 align-items-center">
                                     <div class="col-sm-auto">
                                         <div class="input-group">
@@ -29,8 +29,8 @@
                                     </div>
                                     <!--end col-->
                                     <div class="col-auto">
-                                        <button type="button" class="btn btn-soft-success shadow-none"><i
-                                                class="ri-add-circle-line align-middle me-1"></i> Add Product</button>
+                                        <button type="onClick" class="btn btn-soft-success shadow-none">
+                                            <i class="ri-add-circle-line align-middle me-1"></i> Upload File</button>
                                     </div>
                                     <!--end col-->
                                     <div class="col-auto">

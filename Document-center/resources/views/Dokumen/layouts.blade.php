@@ -45,17 +45,17 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="{{ route('Dokumen.index') }}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
+                                    <img src="assets/images/logo3.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets') }}/images/logo-dark.png" alt="" height="17">
+                                    <img src="assets/images/logo3.png" alt="" height="17">
                                 </span>
                             </a>
                             <span class="logo-sm">
                                 <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('assets') }}/images/logo-light.png" alt="" height="17">
+                                <img src="assets/images/logo3.png" alt="" height="17">
                             </span>
                         </div>
                         <button type="button"
@@ -69,16 +69,16 @@
                         </button>
                         <!-- App Search-->
                         <form class="app-search d-none d-md-block">
-                            <div class="position-relative">
+                            <!-- <div class="position-relative">
                                 <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
                                     id="search-options" value="">
                                 <span class="mdi mdi-magnify search-widget-icon"></span>
                                 <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
                                     id="search-close-options"></span>
-                            </div>
-                            <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
+                            </div> -->
+                            <!-- <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
                                 <div data-simplebar style="max-height: 320px;">
-                                    <!-- item-->
+                                    item
                                     <div class="dropdown-header">
                                         <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
                                     </div>
@@ -89,34 +89,34 @@
                                             <i class="mdi mdi-magnify ms-1"></i>
                                         </a>
                                     </div>
-                                    <!-- item-->
+                                    item
                                     <div class="dropdown-header mt-2">
                                         <h6 class="text-overflow text-muted mb-1 text-uppercase">Pages</h6>
                                     </div>
-                                    <!-- item-->
+                                    item
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="ri-bubble-chart-line align-middle fs-18 text-muted me-2"></i>
                                         <span>Analytics Dashboard</span>
                                     </a>
-                                    <!-- item-->
+                                    item
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
                                         <span>Help Center</span>
                                     </a>
-                                    <!-- item-->
+                                    item
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
                                         <span>My account settings</span>
                                     </a>
-                                    <!-- item-->
+                                    item
                                     <div class="dropdown-header mt-2">
                                         <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
                                     </div>
                                     <div class="notification-list">
-                                        <!-- item -->
+                                        item
                                         <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                             <div class="d-flex">
-                                                <!-- item -->
+                                                item
                                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                                     <div class="d-flex">
                                                         <img src="{{ asset('assets') }}/images/users/avatar-3.jpg"
@@ -136,7 +136,7 @@
                                         <i class="ri-arrow-right-line ms-1"></i>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                     <div class="d-flex align-items-center">
@@ -290,9 +290,8 @@
                                         <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
                                         <span class="align-middle">Settings</span>
                                     </a>
-                                    <a class="dropdown-item"> <i
-                                            class="mdi mdi-logout text-muted fs-16 align-middle me-1"
-                                            href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"></i>
                                         <span class="align-middle">Logout</span>
 
@@ -325,12 +324,12 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index-2.html" class="logo logo-light">
+                <a href="{{ route('Dokumen.index') }}" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets') }}/images/logo-light.png" alt="" height="17">
+                        <img src="{{ asset('assets') }}/images/logo3.png" alt="" height="30">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -345,12 +344,16 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse"
-                                role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('Dokumen.index') }}" role="button"
+                                aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="mdi mdi-speedometer"></i>
                                 <span data-key="t-dashboards">Dashboards</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('Dokumen.create') }}" role="button"
+                                aria-expanded="false" aria-controls="sidebarForms">
+                                <i class="mdi mdi-form-select"></i> <span data-key="t-forms">Forms</span>
+                            </a>
+                            <!-- <div class="collapse menu-dropdown" id="sidebarDashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
@@ -377,23 +380,38 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarApps">
-                                <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Apps</span>
+                                <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Categories</span>
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Calendar
+                                        <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Petunjuk
+                                            Organisasi
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Chat </a>
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> SOP </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Standart Organisasi
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Manajemen Risiko
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> IAOL </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> IBPR </a>
+                                    </li>
+                                    <!-- <li class="nav-item">
                                         <a href="#sidebarEmail" class="nav-link" data-bs-toggle="collapse" role="button"
                                             aria-expanded="false" aria-controls="sidebarEmail" data-key="t-email">
                                             Email
@@ -427,14 +445,15 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
-                                        <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse"
+                                        <!-- <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse"
                                             role="button" aria-expanded="false" aria-controls="sidebarEcommerce"
-                                            data-key="t-ecommerce"> Ecommerce </a>
+                                            data-key="t-ecommerce"> Ecommerce 
+                                        </a> -->
                                         <div class="collapse menu-dropdown" id="sidebarEcommerce">
                                             <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
+                                                <!-- <li class="nav-item">
                                                     <a href="apps-ecommerce-products.html" class="nav-link"
                                                         data-key="t-products"> Products </a>
                                                 </li>
@@ -472,12 +491,13 @@
                                                 <li class="nav-item">
                                                     <a href="apps-ecommerce-seller-details.html" class="nav-link"
                                                         data-key="t-sellers-details"> Seller Details </a>
-                                                </li>
+                                                </li> -->
                                     </li>
                                 </ul>
                             </div>
+
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarProjects" data-key="t-projects">Projects
                             </a>
@@ -496,10 +516,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="#sidebarTasks" class="nav-link" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks </a>
+                                aria-expanded="false" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks 
+                            </a>
                             <div class="collapse menu-dropdown" id="sidebarTasks">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
@@ -516,8 +537,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="#sidebarCRM" class="nav-link" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarCRM" data-key="t-crm"> CRM </a>
                             <div class="collapse menu-dropdown" id="sidebarCRM">
@@ -538,8 +559,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarCrypto"> Crypto </a>
                             <div class="collapse menu-dropdown" id="sidebarCrypto">
@@ -653,11 +674,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="mdi mdi-view-carousel-outline"></i> <span data-key="t-layouts">Layouts</span>
@@ -682,12 +703,12 @@
                             </li>
                         </ul>
                     </div>
-                </li> <!-- end Dashboard Menu -->
-                <li class="menu-title">
+                </li> end Dashboard Menu -->
+                <!-- <li class="menu-title">
                     <i class="ri-more-fill"></i>
                     <span data-key="t-pages">Pages</span>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarAuth" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="mdi mdi-account-circle-outline"></i>
@@ -871,9 +892,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarPages" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarPages">
                         <i class="mdi mdi-sticker-text-outline"></i> <span data-key="t-pages">Pages</span>
@@ -933,9 +954,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarLanding">
                         <i class="ri-rocket-line"></i> <span data-key="t-landing">Landing</span>
@@ -952,11 +973,11 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Components</span></li>
+                <!-- <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Components</span></li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarUI" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarUI">
                         <i class="mdi mdi-cube-outline"></i> <span data-key="t-base-ui">Base UI</span>
@@ -1107,14 +1128,14 @@
                     <a class="nav-link menu-link" href="widgets.html">
                         <i class="mdi mdi-puzzle-outline"></i> <span data-key="t-widgets">Widgets</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarForms" data-bs-toggle="collapse" role="button"
+                <!-- <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('Dokumen.create') }}" role="button"
                         aria-expanded="false" aria-controls="sidebarForms">
                         <i class="mdi mdi-form-select"></i> <span data-key="t-forms">Forms</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarForms">
+                    </a> -->
+                    <!-- <div class="collapse menu-dropdown" id="sidebarForms">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('Dokumen.create') }}" class="nav-link"
@@ -1165,10 +1186,10 @@
                                     <span class="badge badge-pill bg-danger" data-key="t-new">New</span></a>
                             </li>
                         </ul>
-                    </div>
-                </li>
+                    </div> -->
+                <!-- </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarTables">
                         <i class="mdi mdi-grid-large"></i> <span data-key="t-tables">Tables</span>
@@ -1192,9 +1213,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarCharts">
                         <i class="mdi mdi-chart-donut"></i> <span data-key="t-charts">Charts</span>
@@ -1285,9 +1306,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarIcons" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarIcons">
                         <i class="mdi mdi-android-studio"></i> <span data-key="t-icons">Icons</span>
@@ -1313,9 +1334,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarMaps">
                         <i class="mdi mdi-map-marker-outline"></i> <span data-key="t-maps">Maps</span>
@@ -1339,9 +1360,9 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarMultilevel">
                         <i class="mdi mdi-share-variant-outline"></i> <span data-key="t-multi-level">Multi
@@ -1385,7 +1406,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 </ul>
             </div>
