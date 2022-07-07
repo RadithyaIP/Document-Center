@@ -10,8 +10,22 @@
                 <div class="col-12">
                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                         <div class="flex-grow-1">
-                            <h4 class="fs-16 mb-1">Good Morning, Anna!</h4>
-                            <p class="text-muted mb-0">Here's what's happening with your store today.</p>
+                            <?php //ubah timezone menjadi jakarta
+                             date_default_timezone_set("Asia/Jakarta");
+                              $jam=date('H:i'); 
+                              if ($jam> '05:30' && $jam < '10:00' ) { 
+                                $salam='Morning, ' ; 
+                            } elseif ($jam>= '10:00' && $jam < '15:00' ) { 
+                                $salam='Afternoon, ' ; 
+                            } elseif ($jam < '18:00' ) { 
+                                $salam='Evening, ' ; 
+                            } else {
+                                $salam='Night, ' ; 
+                            } ?>
+                            <h4 class="fs-16 mb-1">
+                                <?php
+                                echo 'Good ' . $salam; ?> {{ Auth::user()->name }}!
+                                <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                         </div>
                         <div class="mt-3 mt-lg-0">
                             <form action="{{ route('Dokumen.create') }}">
