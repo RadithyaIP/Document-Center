@@ -29,6 +29,18 @@ class CategoriesController extends Controller
     {
         return view('Categories.StandartOrganisasi');
     }
+    public function ManagementRisk()
+    {
+        return view('Categories.ManagementRisk');
+    }
+    public function IAOL()
+    {
+        return view('Categories.IAOL');
+    }
+    public function IBPR()
+    {
+        return view('Categories.IBPR');
+    }
 
     /**
      * Show the form for creating a new resource.

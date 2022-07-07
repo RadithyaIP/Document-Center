@@ -25,6 +25,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('Categories', CategoriesController::class);
     Route::get('/Sop', [App\Http\Controllers\CategoriesController::class, 'Sop'])->name('Sop');
     Route::get('/StandartOrganisasi', [App\Http\Controllers\CategoriesController::class, 'StandartOrganisasi'])->name('StandartOrganisasi');
+    Route::get('/ManagementRisk', [App\Http\Controllers\CategoriesController::class, 'ManagementRisk'])->name('ManagementRisk');
+    Route::get('/IAOL', [App\Http\Controllers\CategoriesController::class, 'IAOL'])->name('IAOL');
+    Route::get('/IBPR', [App\Http\Controllers\CategoriesController::class, 'IBPR'])->name('IBPR');
 });
 
 

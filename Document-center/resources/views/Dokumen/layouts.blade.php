@@ -251,6 +251,8 @@
                                         <img class="rounded-circle header-profile-user"
                                             src="{{ asset('assets') }}/images/users/avatar-1.jpg" alt="Header Avatar">
                                         <span class="text-start ms-xl-2">
+                                            <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                                {{ Auth::user()->name }} </span>
                                             @guest
                                             @if (Route::has('login'))
                                             <li class="nav-item">
@@ -265,15 +267,6 @@
                                             </li>
                                             @endif
                                             @else
-                                            <!-- item-->
-                                            <h6 class="dropdown-header"></h6>
-                                            <a class="dropdown-item" href="#" role="button" aria-haspopup="true"
-                                                aria-expanded="false" v-pre>
-                                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                                                    {{ Auth::user()->name }}
-                                                </span>
-                                            </a>
-                                        </span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     </a> <a class="dropdown-item" href="pages-profile.html">
@@ -390,7 +383,8 @@
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('Categories.index') }}" class="nav-link" data-key="t-calendar"> Petunjuk
+                                        <a href="{{ route('Categories.index') }}" class="nav-link"
+                                            data-key="t-calendar"> Petunjuk
                                             Organisasi
                                         </a>
                                     </li>
@@ -398,18 +392,20 @@
                                         <a href="{{ ('/Sop') }}" class="nav-link" data-key="t-chat"> SOP </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ ('/StandartOrganisasi') }}" class="nav-link" data-key="t-chat"> Standart Organisasi
+                                        <a href="{{ ('/StandartOrganisasi') }}" class="nav-link" data-key="t-chat">
+                                            Standart Organisasi
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Manajemen Risiko
+                                        <a href="{{ ('/ManagementRisk') }}" class="nav-link" data-key="t-chat">
+                                            Manajemen Risiko
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> IAOL </a>
+                                        <a href="{{ ('/IAOL') }}" class="nav-link" data-key="t-chat"> IAOL </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> IBPR </a>
+                                        <a href="{{ ('/IBPR') }}" class="nav-link" data-key="t-chat"> IBPR </a>
                                     </li>
                                     <!-- <li class="nav-item">
                                         <a href="#sidebarEmail" class="nav-link" data-bs-toggle="collapse" role="button"
@@ -1135,7 +1131,7 @@
                         aria-expanded="false" aria-controls="sidebarForms">
                         <i class="mdi mdi-form-select"></i> <span data-key="t-forms">Forms</span>
                     </a> -->
-                    <!-- <div class="collapse menu-dropdown" id="sidebarForms">
+                <!-- <div class="collapse menu-dropdown" id="sidebarForms">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('Dokumen.create') }}" class="nav-link"
