@@ -24,6 +24,7 @@ class CreateDokumensTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->datetime('revisi');
+            $table->String('file_name');
             $table->boolean('is_active')->default(1);
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();

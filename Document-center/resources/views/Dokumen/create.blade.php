@@ -13,7 +13,7 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm">
+                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
@@ -66,7 +66,7 @@
 
                                         <div class="dropzone">
                                             <div class="fallback">
-                                                <input name="file" type="file" multiple="multiple">
+                                                <input type="file" name="file" class="form-control">
                                             </div>
                                             <div class="dz-message needsclick">
                                                 <div class="mb-3">

@@ -17,6 +17,7 @@ class Dokumen extends Model
         'nama_dokumen',
         'revisi',
         'keterangan',
+        'file',
     ];
     public function kategoris(){
         return $this->belongsTo('App\Models\Kategori');

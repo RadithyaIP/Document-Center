@@ -41,6 +41,13 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
+        ]);
+        $fileName = time().'.'.$request->file->extension();
+        $request->file->move(public_path('file'), $fileName);
+        
+        //Database
         $dokumens = new Dokumen;
         $dokumens->no_dokumen = $request->input('no_dokumen');
         $dokumens->kategori_id = $request->kategori;
@@ -49,6 +56,9 @@ class DokumenController extends Controller
         $dokumens->nama_dokumen = $request->input('nama_dokumen');
         $dokumens->revisi = $request->input('revisi');
         $dokumens->keterangan = $request->input('keterangan');
+        
+        $dokumens->file_name = $fileName;
+
         $dokumens->save();
 
         return redirect()->route('Dokumen.index')->with('success', 'Data berhasil ditambahkan');
