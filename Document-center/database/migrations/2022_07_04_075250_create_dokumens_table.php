@@ -17,7 +17,8 @@ class CreateDokumensTable extends Migration
             $table->id();
             $table->String('no_dokumen');
             $table->unsignedBigInteger('kategori_id');
-            $table->foreign('kategori_id')->references('id')->on('users');
+            $table->foreign('kategori_id')->references('id')->on('kategoris');
+            $table->unsignedBigInteger('divisi');
             $table->String('nama_dokumen');
             $table->String('keterangan');
             $table->unsignedBigInteger('user_id');

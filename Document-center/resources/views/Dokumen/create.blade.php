@@ -13,11 +13,11 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form action="{{ route('Dokumen.store') }}" id="myForm">
+                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm">
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
-                            <input type="text" class="form-control" id="no_dokumen" placeholder="Enter Nomor Dokumen">
+                            <input name="no_dokumen"type="text" class="form-control" id="no_dokumen" placeholder="Enter Nomor Dokumen">
                         </div>
                         <div class="mb-3">
                         <label for="kategori" class="form-label">Kategori</label>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="user_id" class="form-label">User</label>
-                            <select name="user_id" class="form-control" id="kategori">
+                            <select name="user_id" class="form-control" id="user_id">
                                 <option value="{{$users->id}}">{{ "$users->name" }}</option>
                             </select>
                         </div>
@@ -41,20 +41,76 @@
                         </div>
                         <div class="mb-3">
                             <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
-                            <input type="text" class="form-control" id="nama_dokumen" placeholder="Enter Nama Dokumen">
+                            <input name="nama_dokumen"type="text" class="form-control" id="nama_dokumen" placeholder="Enter Nama Dokumen">
                         </div>
                         <div class="mb-3">
                             <label for="StartleaveDate" class="form-label">Terakhir Revisi</label>
-                            <input type="date" class="form-control" data-provider="flatpickr" id="revisi">
+                            <input name="revisi"type="date" class="form-control" data-provider="flatpickr" id="revisi">
                         </div>
                         <div class="mb-3">
                             <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                            <textarea class="form-control" id="keterangan" rows="3"
+                            <textarea name="keterangan"class="form-control" id="keterangan" rows="3"
                                 placeholder="Enter your message"></textarea>
                         </div>
 
 
-                        
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title mb-0">Upload Dokumen</h4>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <p class="text-muted">Upload File .pdf</p>
+
+                                        <div class="dropzone">
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple="multiple">
+                                            </div>
+                                            <div class="dz-message needsclick">
+                                                <div class="mb-3">
+                                                    <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                                </div>
+
+                                                <h4>Drop files here or click to upload.</h4>
+                                            </div>
+                                        </div>
+
+                                        <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                            <li class="mt-2" id="dropzone-preview-list">
+                                                <!-- This is used as the file preview template -->
+                                                <div class="border rounded">
+                                                    <div class="d-flex p-2">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded">
+                                                                <img data-dz-thumbnail class="img-fluid rounded d-block"
+                                                                    src="#" alt="Dropzone-Image" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <div class="pt-1">
+                                                                <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                                                                <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                                                                <strong class="error text-danger"
+                                                                    data-dz-errormessage></strong>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex-shrink-0 ms-3">
+                                                            <button data-dz-remove
+                                                                class="btn btn-sm btn-danger">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- end dropzon-preview -->
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div> <!-- end col -->
+                        </div>
                         <!-- end row -->
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">Submit</button>

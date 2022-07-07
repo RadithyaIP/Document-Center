@@ -42,13 +42,13 @@ class DokumenController extends Controller
     public function store(Request $request)
     {
         $dokumens = new Dokumen;
-        $dokumens->no_dokumen = $request->no_dokumen;
-        $dokumens->kategori = $request->kategori;
+        $dokumens->no_dokumen = $request->input('no_dokumen');
+        $dokumens->kategori_id = $request->kategori;
         $dokumens->user_id = $request->user_id;
         $dokumens->divisi = $request->divisi;
-        $dokumens->nama_dokumen = $request->nama_dokumen;
-        $dokumens->revisi = $request->revisi;
-        $dokumens->keterangan = $request->keterangan;
+        $dokumens->nama_dokumen = $request->input('nama_dokumen');
+        $dokumens->revisi = $request->input('revisi');
+        $dokumens->keterangan = $request->input('keterangan');
         $dokumens->save();
 
         return redirect()->route('Dokumen.index')->with('success', 'Data berhasil ditambahkan');
