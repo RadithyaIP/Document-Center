@@ -289,8 +289,8 @@
                                     <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
                                     <span class="align-middle">Settings</span>
                                 </a>
-                                <a class="dropdown-item"> <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"
-                                        href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}">
+                                    <i class="mdi mdi-logout text-muted fs-16 align-middle me-1" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"></i>
                                     <span class="align-middle">Logout</span>
 

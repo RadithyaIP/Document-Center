@@ -19,10 +19,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('Dokumen', DokumenController::class);
+});
 
 
 Auth::routes();
-Route::resource('Dokumen', DokumenController::class);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
