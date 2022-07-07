@@ -13,7 +13,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets') }}/images/ship1.png">
 
 
     <!-- dropzone css -->
@@ -45,17 +45,17 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="{{ route('Dokumen.index') }}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo3.png" alt="" height="22">
+                                    <img src="assets/images/ship1.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo3.png" alt="" height="17">
+                                    <img src="assets/images/ship1.png" alt="" height="17">
                                 </span>
                             </a>
                             <span class="logo-sm">
-                                <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
+                                <img src="{{ asset('assets') }}/images/ship1.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo3.png" alt="" height="17">
+                                <img src="assets/images/ship1.png" alt="" height="17">
                             </span>
                         </div>
                         <button type="button"
@@ -317,7 +317,7 @@
                 <!-- Dark Logo-->
                 <a href="index-2.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
+                        <img src="{{ asset('assets') }}/images/ship1.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('assets') }}/images/logo-dark.png" alt="" height="17">
@@ -326,7 +326,7 @@
                 <!-- Light Logo-->
                 <a href="{{ route('Dokumen.index') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="22">
+                        <img src="{{ asset('assets') }}/images/ship1.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('assets') }}/images/logo3.png" alt="" height="30">
@@ -390,15 +390,15 @@
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Petunjuk
+                                        <a href="{{ route('Categories.index') }}" class="nav-link" data-key="t-calendar"> Petunjuk
                                             Organisasi
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> SOP </a>
+                                        <a href="{{ ('/Sop') }}" class="nav-link" data-key="t-chat"> SOP </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Standart Organisasi
+                                        <a href="{{ ('/StandartOrganisasi') }}" class="nav-link" data-key="t-chat"> Standart Organisasi
                                         </a>
                                     </li>
                                     <li class="nav-item">

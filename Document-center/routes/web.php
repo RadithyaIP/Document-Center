@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\CategoriesController;
 
 
 /*
@@ -21,6 +22,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('Dokumen', DokumenController::class);
+    Route::resource('Categories', CategoriesController::class);
+    Route::get('/Sop', [App\Http\Controllers\CategoriesController::class, 'Sop'])->name('Sop');
+    Route::get('/StandartOrganisasi', [App\Http\Controllers\CategoriesController::class, 'StandartOrganisasi'])->name('StandartOrganisasi');
 });
 
 
