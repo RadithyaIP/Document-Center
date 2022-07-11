@@ -73,7 +73,12 @@ class DokumenController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::with('kategoris', 'divisis')->where('id', $id)->first();
+        
+        return \view('Dokumen.details' , compact('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**
