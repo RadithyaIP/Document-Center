@@ -31,6 +31,7 @@
                         <tbody>
                             @foreach($dokumens as $dokumen)
                             @if($users->divisi_id == $dokumen->divisi)
+                            @if($dokumen->kategori_id == "1")
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -42,14 +43,15 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h5 class="fs-14 my-1 fw-normal">{{"$dokumen->no_dokumen"}}</h5>
                                     <span class="text-muted">Nomor Dokumen</span>
+                                    <h5 class="fs-14 my-1 fw-normal">{{"$dokumen->no_dokumen"}}</h5>
                                 </td>
                                 
                                 <td>
                                     <button type="submit" class="btn btn-primary">Download</button>
                                 </td>
                             </tr>
+                            @endif
                             @endif
                             @endforeach
                             <!-- <tr>
