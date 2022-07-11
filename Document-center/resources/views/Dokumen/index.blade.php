@@ -70,7 +70,8 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Total Earnings
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> PETUNJUK
+                                        ORGANISASI
                                     </p>
                                 </div>
                                 <div class="flex-shrink-0">
@@ -101,7 +102,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Orders</p>
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">SOP</p>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <h5 class="text-danger fs-14 mb-0">
@@ -125,13 +126,15 @@
                     </div><!-- end card -->
                 </div><!-- end col -->
 
+        
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Customers</p>
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">STANDART
+                                        ORGANISASI</p>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <h5 class="text-success fs-14 mb-0">
@@ -161,7 +164,8 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> My Balance</p>
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> MANAGEMENT RISIKO
+                                    </p>
                                 </div>
                                 <div class="flex-shrink-0">
                                     <h5 class="text-muted fs-14 mb-0">
@@ -187,7 +191,10 @@
             </div> <!-- end row-->
 
 
-            <div class="row">
+
+
+
+            <!-- <div class="row">
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -210,7 +217,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- end card header -->
+                        </div>end card header
 
                         <div class="card-body">
                             <div class="table-responsive table-card">
@@ -429,7 +436,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- end card header -->
+                        </div>end card header
 
                         <div class="card-body">
                             <div class="table-responsive table-card">
@@ -466,7 +473,7 @@
                                                         class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
                                                 </h5>
                                             </td>
-                                        </tr><!-- end -->
+                                        </tr>end
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -497,7 +504,7 @@
                                                         class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
                                                 </h5>
                                             </td>
-                                        </tr><!-- end -->
+                                        </tr>end
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -528,7 +535,7 @@
                                                         class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
                                                 </h5>
                                             </td>
-                                        </tr><!-- end -->
+                                        </tr>end
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -559,7 +566,7 @@
                                                         class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
                                                 </h5>
                                             </td>
-                                        </tr><!-- end -->
+                                        </tr>end
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -591,9 +598,9 @@
                                                         class="ri-bar-chart-fill text-success fs-16 align-middle ms-2"></i>
                                                 </h5>
                                             </td>
-                                        </tr><!-- end -->
+                                        </tr>end
                                     </tbody>
-                                </table><!-- end table -->
+                                </table>end table
                             </div>
 
                             <div class="align-items-center mt-4 pt-2 justify-content-between d-flex">
@@ -622,10 +629,10 @@
                                 </ul>
                             </div>
 
-                        </div> <!-- .card-body-->
-                    </div> <!-- .card-->
-                </div> <!-- .col-->
-            </div> <!-- end row-->
+                        </div> .card-body
+                    </div> .card
+                </div> .col
+            </div> end row -->
 
             <div class="row">
                 <div class="col-xl-4">

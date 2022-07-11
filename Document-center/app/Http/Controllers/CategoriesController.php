@@ -27,25 +27,45 @@ class CategoriesController extends Controller
 
     public function Sop()
     {
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
         
-        return view('Categories.SOP');
+        return view('Categories.SOP', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     public function StandartOrganisasi()
     {
-        return view('Categories.StandartOrganisasi');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.StandartOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
     public function ManagementRisk()
     {
-        return view('Categories.ManagementRisk');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.ManagementRisk', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
     public function IAOL()
     {
-        return view('Categories.IAOL');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.IAOL', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
     public function IBPR()
     {
-        return view('Categories.IBPR');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.IBPR', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     //Download file
