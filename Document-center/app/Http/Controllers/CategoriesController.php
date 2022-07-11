@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Models\Dokumen;
 use App\Models\User;
 use App\Models\Kategori;
@@ -47,6 +48,17 @@ class CategoriesController extends Controller
         return view('Categories.IBPR');
     }
 
+    //Download file
+    public function download($file_name)
+    {
+        $path = public_path('file\$file_name');
+        $fileName = '$file_name';
+
+        return Response::download($path, $fileName, ['Content-Type: application/zip']);
+    }
+
+
+    
     /**
      * Show the form for creating a new resource.
      *
