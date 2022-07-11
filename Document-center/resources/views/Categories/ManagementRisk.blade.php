@@ -48,9 +48,11 @@
                                 </td>
                                 
                                 <td>
-                                    <button type="submit" class="btn btn-primary">
-                                        <a href="{{ route('download.petunjukorganisasi', $file_name = $dokumen->file_name) }}">Download</a>
-                                    </button>
+                                    <a href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
+                                        <button type="submit" class="btn btn-primary">
+                                            Download
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                             @endif

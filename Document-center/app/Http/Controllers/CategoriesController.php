@@ -71,10 +71,14 @@ class CategoriesController extends Controller
     //Download file
     public function download($file_name)
     {
-        $path = public_path('file\$file_name');
-        $fileName = '$file_name';
+        $file = '$file_name.pdf';
+        $path = public_path('file/'. $file_name);
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
 
-        return Response::download($path, $fileName, ['Content-Type: application/zip']);
+        return Response::download($path, $file, $headers);
+        
     }
 
 
