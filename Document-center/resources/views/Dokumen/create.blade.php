@@ -69,23 +69,23 @@
                                     <div class="card-body">
                                         <p class="text-muted">Upload File .pdf</p>
 
-                                        <div class="dropzone">
+                                        <div class="">
                                             <div class="fallback">
                                                 <input type="file" name="file" multiple="multiple">
                                             </div>
-                                            <div class="dz-message needsclick">
+                                            <!-- <div class="dz-message needsclick">
                                                 <div class="mb-3">
                                                     <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
                                                 </div>
 
                                                 <h4>Drop files here or click to upload.</h4>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <ul class="list-unstyled mb-0" id="dropzone-preview">
                                             <li class="mt-2" id="dropzone-preview-list">
                                                 <!-- This is used as the file preview template -->
-                                                <div class="border rounded">
+                                                <!-- <div class="border rounded">
                                                     <div class="d-flex p-2">
                                                         <div class="flex-shrink-0 me-3">
                                                             <div class="avatar-sm bg-light rounded">
@@ -106,7 +106,7 @@
                                                                 class="btn btn-sm btn-danger">Delete</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </li>
                                         </ul>
                                         <!-- end dropzon-preview -->
@@ -153,4 +153,10 @@
             </div>
         </div>
     </div>
+    <!-- <script type="text/javascript">
+        Dropzone.options.dropzone ={
+            maxFilesize:1,
+            acceptedFiles: ".pdf",
+        };
+    </script> -->
     @endsection
