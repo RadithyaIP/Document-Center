@@ -17,11 +17,16 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('Categories.PetunjukOrganisasi');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     public function Sop()
     {
+        
         return view('Categories.SOP');
     }
 
