@@ -90,6 +90,16 @@ class CategoriesController extends Controller
         return Response::download($path, $file, $headers);
         
     }
+    public function view($file_name)
+    {
+        $file = '$file_name.pdf';
+        $path = public_path('file/'. $file_name);
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+        return Response::stream($path, $file, $headers);
+        
+    }
 
 
     

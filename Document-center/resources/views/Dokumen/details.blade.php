@@ -431,7 +431,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-4 text-center">
-                                        <h5 class="mb-1">Detail</h5>
+                                        <h5 class="mb-1"></h5>
                                     </div>
                                     <div class="table-responsive">
 
@@ -443,27 +443,27 @@
                                                 </tr>
                                                 <tr>
                                                     <th><span class="fw-medium">Nama Dokumen</span></th>
-                                                    <td></td>
+                                                    <td>{{ $dokumens->nama_dokumen }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th><span class="fw-medium">Kategori Dokumen</span></th>
-                                                    <td>United Kingdom</td>
+                                                    @foreach ($kategoris as $kategori)
+                                                    @if($dokumens->kategori_id == $kategori->id)
+                                                    <td>{{ "$kategori->nama" }}</td>
+                                                    @endif
+                                                    @endforeach
+
                                                 </tr>
                                                 <tr>
-                                                    <th><span class="fw-medium">Revision</span></th>
+                                                    <th><span class="fw-medium">Revisi</span></th>
                                                     <td><a href="javascript:void(0);"
-                                                            class="link-primary">www.forcemedicines.com</a>
+                                                            class="link-primary">{{ $dokumens->revisi }}</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th><span class="fw-medium">Deskripsi</span></th>
-                                                    <td>+(123) 9876 654 321</td>
+                                                    <td>{{ $dokumens->keterangan }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <th><span class="fw-medium">File</span></th>
-                                                    <td>+1 999 876 5432</td>
-                                                </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
