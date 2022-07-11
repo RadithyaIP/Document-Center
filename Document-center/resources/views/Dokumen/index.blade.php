@@ -678,13 +678,12 @@
                                 <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                     <thead class="text-muted table-light">
                                         <tr>
-                                            <th scope="col">Order ID</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Vendor</th>
+                                            <th scope="col">No Dokumen</th>
+                                            <th scope="col">User</th>
+                                            <th scope="col">Nama Dokumen</th>
+                                            <th scope="col">View</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Rating</th>
+                                            <th scope="col">Download</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -703,9 +702,6 @@
                                                 </div>
                                             </td>
                                             <td>Clothes</td>
-                                            <td>
-                                                <span class="text-success">$109.00</span>
-                                            </td>
                                             <td>Zoetic Fashion</td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
@@ -730,9 +726,6 @@
                                                 </div>
                                             </td>
                                             <td>Kitchen Storage</td>
-                                            <td>
-                                                <span class="text-success">$149.00</span>
-                                            </td>
                                             <td>Micro Design</td>
                                             <td>
                                                 <span class="badge badge-soft-warning">Pending</span>
@@ -757,9 +750,6 @@
                                                 </div>
                                             </td>
                                             <td>Bike Accessories</td>
-                                            <td>
-                                                <span class="text-success">$215.00</span>
-                                            </td>
                                             <td>Nesta Technologies</td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
@@ -784,9 +774,6 @@
                                                 </div>
                                             </td>
                                             <td>Furniture</td>
-                                            <td>
-                                                <span class="text-success">$199.00</span>
-                                            </td>
                                             <td>Syntyce Solutions</td>
                                             <td>
                                                 <span class="badge badge-soft-danger">Unpaid</span>
@@ -811,9 +798,6 @@
                                                 </div>
                                             </td>
                                             <td>Bags and Wallets</td>
-                                            <td>
-                                                <span class="text-success">$330.00</span>
-                                            </td>
                                             <td>iTest Factory</td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
