@@ -439,7 +439,7 @@
                                             <tbody>
                                                 <tr>
                                                     <th><span class="fw-medium">Nomor Dokumen</span></th>
-                                                    <td></td>
+                                                    <td>{{ $dokumens->no_dokumen }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th><span class="fw-medium">Nama Dokumen</span></th>

@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('Dokumen', DokumenController::class);
     Route::resource('Categories', CategoriesController::class);
+    Route::get('/PetunjukOrganisasi', [App\Http\Controllers\CategoriesController::class, 'PetunjukOrganisasi'])->name('petunjukOrganisasi');
     Route::get('/Sop', [App\Http\Controllers\CategoriesController::class, 'Sop'])->name('Sop');
     Route::get('/StandartOrganisasi', [App\Http\Controllers\CategoriesController::class, 'StandartOrganisasi'])->name('StandartOrganisasi');
     Route::get('/ManagementRisk', [App\Http\Controllers\CategoriesController::class, 'ManagementRisk'])->name('ManagementRisk');

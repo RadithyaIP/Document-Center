@@ -25,6 +25,16 @@ class CategoriesController extends Controller
         return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
+
+    public function petunjukOrganisasi()
+    {
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+    }
+
     public function Sop()
     {
         $users = auth()->user();

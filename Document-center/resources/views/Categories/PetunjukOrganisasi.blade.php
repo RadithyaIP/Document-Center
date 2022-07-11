@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xl-12">
+    <div class="col-xl-6">
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Petunjuk Organisasi</h4>
@@ -36,7 +36,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div>
-                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html"
+                                            <h5 class="fs-14 my-1"><a href="{{ route('Dokumen.show', $dokumen->id) }}"
                                                     class="text-reset">{{"$dokumen->nama_dokumen"}}</a></h5>
                                             <!-- <span class="text-muted"></span> -->
                                         </div>

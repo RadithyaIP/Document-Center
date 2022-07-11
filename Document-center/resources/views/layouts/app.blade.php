@@ -355,7 +355,7 @@
                         <div class="collapse menu-dropdown" id="sidebarApps">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('Categories.index') }}" class="nav-link" data-key="t-calendar">
+                                    <a href="{{ '/petunjukOrganisasi' }}" class="nav-link" data-key="t-calendar">
                                         Petunjuk
                                         Organisasi
                                     </a>

@@ -25,4 +25,7 @@ class Dokumen extends Model
     public function users(){
         return $this->belongsTo('App\Models\User');
     }
+    public function divisis(){
+        return $this->belongsTo('App\Models\Divisi');
+    }
 }
