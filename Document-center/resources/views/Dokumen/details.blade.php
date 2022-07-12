@@ -480,6 +480,11 @@
                                                                 Download
                                                             </button>
                                                         </a>
+                                                        <a href="{{ route('Dokumen.edit', $dokumens->id) }}">
+                                                            <button type=" submit" class="btn btn-primary">
+                                                                Update
+                                                            </button>
+                                                        </a>
                                                         <a
                                                             href="{{ route('download.petunjukorganisasi', $dokumens->file_name) }}">
                                                             <button type="submit" class="btn btn-primary">

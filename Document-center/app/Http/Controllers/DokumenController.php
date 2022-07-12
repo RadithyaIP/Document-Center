@@ -92,7 +92,10 @@ class DokumenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        return \view('Dokumen.edit', compact ('users', 'kategoris', 'divisis'));
     }
 
     /**
@@ -104,7 +107,7 @@ class DokumenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('Dokumen.details')->with('success', 'Data berhasil diupdate');
     }
 
     /**
