@@ -691,7 +691,7 @@
                                         @if($users->divisi_id == $dokumen->divisi)
                                         <tr>
                                             <td>
-                                                <a href="apps-ecommerce-order-details.html"
+                                                <a href="{{ route('Dokumen.show', $dokumen->id) }}"
                                                     class="fw-medium link-primary">{{ $dokumen->no_dokumen }}</a>
                                             </td>
                                             <td>
@@ -708,15 +708,20 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <span class="badge badge-soft-success">Paid</span>
+                                                @if($dokumen->is_active == '1')
+                                                <span class="badge badge-soft-success">Active</span>
+                                                @elseif($dokumen->is_active == '2')
+                                                <span class="badge badge-soft-success">Not Active</span>
+                                                @endif
                                             </td>
                                             <td>
-                                    <a href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
-                                        <button type="submit" class="btn btn-primary">
-                                            Download
-                                        </button>
-                                    </a>
-                                </td>
+                                                <a
+                                                    href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Download
+                                                    </button>
+                                                </a>
+                                            </td>
                                         </tr><!-- end tr -->
                                         @endif
                                         @endforeach

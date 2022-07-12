@@ -46,11 +46,18 @@
                                     <span class="text-muted">Nomor Dokumen</span>
                                     <h5 class="fs-14 my-1 fw-normal">{{"$dokumen->no_dokumen"}}</h5>
                                 </td>
-                                
+
                                 <td>
                                     <a href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
                                         <button type="submit" class="btn btn-primary">
                                             Download
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('view.petunjukorganisasi', $dokumen->file_name) }}">
+                                        <button type="submit" class="btn btn-primary">
+                                            View
                                         </button>
                                     </a>
                                 </td>
