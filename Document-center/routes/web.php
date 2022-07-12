@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/IAOL', [App\Http\Controllers\CategoriesController::class, 'IAOL'])->name('IAOL');
     Route::get('/IBPR', [App\Http\Controllers\CategoriesController::class, 'IBPR'])->name('IBPR');
     Route::get('/download/{file_name}', [App\Http\Controllers\CategoriesController::class, 'download'])->name('download.petunjukorganisasi');
-    Route::get('/view/{file_name}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('view.petunjukorganisasi');
+    Route::get('/view/{filename}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('view.petunjukorganisasi');
 });
 
 

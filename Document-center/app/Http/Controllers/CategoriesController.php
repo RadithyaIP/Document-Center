@@ -8,6 +8,7 @@ use App\Models\Dokumen;
 use App\Models\User;
 use App\Models\Kategori;
 use App\Models\Divisi;
+use PDF;
 
 class CategoriesController extends Controller
 {
@@ -97,7 +98,10 @@ class CategoriesController extends Controller
         $headers = array(
             'Content-Type: application/pdf',
         );
-        return Response::stream($path, $file, $headers);
+        return Response::make(file_get_contents($path), 200, [
+            'Content-Type: application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file.'"'
+        ]);
         
     }
 
