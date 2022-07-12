@@ -496,6 +496,11 @@
                                                                 Download
                                                             </button>
                                                         </a>
+                                                        <a href="{{ route('Dokumen.edit', $dokumens->id) }}">
+                                                            <button type=" submit" class="btn btn-primary">
+                                                                Update
+                                                            </button>
+                                                        </a>
                                                         <a
                                                             href="{{ route('Dokumen.destroy', $dokumens->id) }}">
                                                             <button type="submit" class="btn btn-primary">
