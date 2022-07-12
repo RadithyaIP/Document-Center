@@ -421,7 +421,7 @@
                 </div>
                 <!-- end page title -->
                 <div class="row">
-                    <div class="col-xxl-3">
+                    <div class="col-xxl-12">
                         <div class="card">
                             <div class="card-body p-4">
                                 <div>
@@ -464,6 +464,29 @@
                                                 <tr>
                                                     <th><span class="fw-medium">Deskripsi</span></th>
                                                     <td>{{ $dokumens->keterangan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span class="fw-medium">Action</span></th>
+                                                    <td>
+                                                        <a
+                                                            href="{{ route('view.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                View
+                                                            </button>
+                                                        </a>
+                                                        <a
+                                                            href="{{ route('download.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Download
+                                                            </button>
+                                                        </a>
+                                                        <a
+                                                            href="{{ route('download.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Delete
+                                                            </button>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
