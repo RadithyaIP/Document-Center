@@ -13,8 +13,7 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form method="POST" action="" id="myForm" enctype="multipart/form-data">
-                        @method('PUT')
+                    <form method="POST" action="{{ route('Dokumen.update', $dokumens->id) }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>

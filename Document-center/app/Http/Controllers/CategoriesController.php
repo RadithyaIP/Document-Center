@@ -82,7 +82,7 @@ class CategoriesController extends Controller
     //Download file
     public function download($file_name)
     {
-        $file = $file_name.'.pdf';
+        $file = $file_name;
         $path = public_path('file/'. $file_name);
         $headers = array(
             'Content-Type: application/pdf',

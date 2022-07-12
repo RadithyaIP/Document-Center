@@ -46,18 +46,20 @@ class DokumenController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
+            'file' => 'required|file|mimes:pdf',
         ]);
-        $fileName = time().'.'.$request->file->extension();
+        $nama_dokumen = $request->input('nama_dokumen');
+        $no_dokumen = $request->input('no_dokumen');
+        $fileName = $no_dokumen . '_' . $nama_dokumen . '.' . $request->file->extension();
         $request->file->move(public_path('file'), $fileName);
         
         //Database
         $dokumens = new Dokumen;
-        $dokumens->no_dokumen = $request->input('no_dokumen');
+        $dokumens->no_dokumen = $no_dokumen;
         $dokumens->kategori_id = $request->kategori;
         $dokumens->user_id = $request->user_id;
         $dokumens->divisi = $request->divisi;
-        $dokumens->nama_dokumen = $request->input('nama_dokumen');
+        $dokumens->nama_dokumen = $nama_dokumen;
         $dokumens->revisi = $request->input('revisi');
         $dokumens->keterangan = $request->input('keterangan');
         
@@ -95,7 +97,8 @@ class DokumenController extends Controller
         $users = auth()->user();
         $kategoris = Kategori::all();
         $divisis = Divisi::all();
-        return \view('Dokumen.edit', compact ('users', 'kategoris', 'divisis'));
+        $dokumens = Dokumen::all();
+        return \view('Dokumen.edit', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**
@@ -107,6 +110,23 @@ class DokumenController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $dokumens=Dokumen::find($id);
+        $dokumens->no_dokumen->request->input('no_dokumen');
+        $dokumens->kategori->request->input('kategori');
+        $dokumens->nama_dokumen->request->input('nama_dokumen');
+        $dokumens->keterangan->request->input('keterangan');
+        $dokumens->revisi->request->input('revisi');
+
+        $nama_dokumen = $request->input('nama_dokumen');
+        $no_dokumen = $request->input('no_dokumen');
+        
+        $oldFileName = $dokumens->file_name;
+        $newFileName = $fileName = $no_dokumen . '_' . $nama_dokumen . '.pdf';
+        $oldFile = public_path('file/'. $oldFile_name);
+        $newFile = public_path('file/'. $newFile_name);
+
+        rename($oldFile, $newFile);
+
         return redirect()->route('Dokumen.details')->with('success', 'Data berhasil diupdate');
     }
 

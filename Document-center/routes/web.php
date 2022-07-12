@@ -30,8 +30,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/IAOL', [App\Http\Controllers\CategoriesController::class, 'IAOL'])->name('IAOL');
     Route::get('/IBPR', [App\Http\Controllers\CategoriesController::class, 'IBPR'])->name('IBPR');
     Route::get('/download/{file_name}', [App\Http\Controllers\CategoriesController::class, 'download'])->name('downloadFile');
+    
     Route::get('/view/{filename}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('viewFile');
     Route::get('/delete/{id}', [App\Http\Controllers\DokumenController::class, 'destroy'])->name('Dokumen.destroy');
+    Route::get('/edit/{id}', [App\Http\Controllers\DokumenController::class, 'edit'])->name('Dokumen.edit');
+    Route::get('/update/{id}', [App\Http\Controllers\DokumenController::class, 'update'])->name('Dokumen.update');
 });
 
 
