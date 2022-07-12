@@ -17,8 +17,11 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        
-        return view('Dokumen.index');
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        $divisis = Divisi::all();
+        $dokumens = Dokumen::all();
+        return view('Dokumen.index', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**

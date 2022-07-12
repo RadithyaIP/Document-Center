@@ -126,7 +126,7 @@
                     </div><!-- end card -->
                 </div><!-- end col -->
 
-        
+
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
                     <div class="card card-animate">
@@ -687,10 +687,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($dokumens as $dokumen)
+                                    @if($users->divisi_id == $dokumen->divisi)
                                         <tr>
                                             <td>
                                                 <a href="apps-ecommerce-order-details.html"
-                                                    class="fw-medium link-primary">#VZ2112</a>
+                                                    class="fw-medium link-primary">{{ $dokumen->no_dokumen }}</a>
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -698,10 +700,10 @@
                                                         <img src="assets/images/users/avatar-1.jpg" alt=""
                                                             class="avatar-xs rounded-circle shadow" />
                                                     </div>
-                                                    <div class="flex-grow-1">Alex Smith</div>
+                                                    <div class="flex-grow-1">{{ "$users->name" }}</div>
                                                 </div>
                                             </td>
-                                            <td>Clothes</td>
+                                            <td>{{"$dokumen->nama_dokumen"}}</td>
                                             <td>Zoetic Fashion</td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
@@ -711,102 +713,8 @@
                                                         class="text-muted fs-11 ms-1">(61 votes)</span></h5>
                                             </td>
                                         </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="apps-ecommerce-order-details.html"
-                                                    class="fw-medium link-primary">#VZ2111</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="assets/images/users/avatar-2.jpg" alt=""
-                                                            class="avatar-xs rounded-circle shadow" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Jansh Brown</div>
-                                                </div>
-                                            </td>
-                                            <td>Kitchen Storage</td>
-                                            <td>Micro Design</td>
-                                            <td>
-                                                <span class="badge badge-soft-warning">Pending</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 fw-medium mb-0">4.5<span
-                                                        class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="apps-ecommerce-order-details.html"
-                                                    class="fw-medium link-primary">#VZ2109</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="assets/images/users/avatar-3.jpg" alt=""
-                                                            class="avatar-xs rounded-circle shadow" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Ayaan Bowen</div>
-                                                </div>
-                                            </td>
-                                            <td>Bike Accessories</td>
-                                            <td>Nesta Technologies</td>
-                                            <td>
-                                                <span class="badge badge-soft-success">Paid</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 fw-medium mb-0">4.9<span
-                                                        class="text-muted fs-11 ms-1">(89 votes)</span></h5>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="apps-ecommerce-order-details.html"
-                                                    class="fw-medium link-primary">#VZ2108</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="assets/images/users/avatar-4.jpg" alt=""
-                                                            class="avatar-xs rounded-circle shadow" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Prezy Mark</div>
-                                                </div>
-                                            </td>
-                                            <td>Furniture</td>
-                                            <td>Syntyce Solutions</td>
-                                            <td>
-                                                <span class="badge badge-soft-danger">Unpaid</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 fw-medium mb-0">4.3<span
-                                                        class="text-muted fs-11 ms-1">(47 votes)</span></h5>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="apps-ecommerce-order-details.html"
-                                                    class="fw-medium link-primary">#VZ2107</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="assets/images/users/avatar-6.jpg" alt=""
-                                                            class="avatar-xs rounded-circle shadow" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Vihan Hudda</div>
-                                                </div>
-                                            </td>
-                                            <td>Bags and Wallets</td>
-                                            <td>iTest Factory</td>
-                                            <td>
-                                                <span class="badge badge-soft-success">Paid</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 fw-medium mb-0">4.7<span
-                                                        class="text-muted fs-11 ms-1">(161 votes)</span></h5>
-                                            </td>
-                                        </tr><!-- end tr -->
+                                        @endif
+                                        @endforeach
                                     </tbody><!-- end tbody -->
                                 </table><!-- end table -->
                             </div>
