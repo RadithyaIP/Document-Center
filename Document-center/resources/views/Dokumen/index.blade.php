@@ -687,8 +687,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($dokumens as $dokumen)
-                                    @if($users->divisi_id == $dokumen->divisi)
+                                        @foreach($dokumens as $dokumen)
+                                        @if($users->divisi_id == $dokumen->divisi)
                                         <tr>
                                             <td>
                                                 <a href="apps-ecommerce-order-details.html"
@@ -696,22 +696,27 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                            class="avatar-xs rounded-circle shadow" />
-                                                    </div>
                                                     <div class="flex-grow-1">{{ "$users->name" }}</div>
                                                 </div>
                                             </td>
                                             <td>{{"$dokumen->nama_dokumen"}}</td>
-                                            <td>Zoetic Fashion</td>
+                                            <td>
+                                                <a href="{{ route('view.petunjukorganisasi', $dokumen->file_name) }}">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        View
+                                                    </button>
+                                                </a>
+                                            </td>
                                             <td>
                                                 <span class="badge badge-soft-success">Paid</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 fw-medium mb-0">5.0<span
-                                                        class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                            </td>
+                                    <a href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
+                                        <button type="submit" class="btn btn-primary">
+                                            Download
+                                        </button>
+                                    </a>
+                                </td>
                                         </tr><!-- end tr -->
                                         @endif
                                         @endforeach
