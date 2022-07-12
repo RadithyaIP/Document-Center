@@ -425,7 +425,8 @@
                         <div class="card">
                             <div class="card-body p-4">
                                 <div>
-                                    <div class="flex-shrink-0 avatar-md mx-auto">
+                                    <a class="btn btn-dark mt-3" href="{{ route('Categories.index') }}">Back</a>
+                                    <div class=" flex-shrink-0 avatar-md mx-auto">
                                         <div class="avatar-title bg-light rounded">
                                             <img src="{{ asset('assets') }}/images/doc.png" alt="" height="50" />
                                         </div>
