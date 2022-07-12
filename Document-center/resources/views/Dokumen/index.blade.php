@@ -688,7 +688,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($dokumens as $dokumen)
-                                        @if($users->divisi_id == $dokumen->divisi)
+                                        @if($users->divisi_id == $dokumen->divisi && $dokumen->is_deleted == '0')
                                         <tr>
                                             <td>
                                                 <a href="{{ route('Dokumen.show', $dokumen->id) }}"
@@ -701,7 +701,7 @@
                                             </td>
                                             <td>{{"$dokumen->nama_dokumen"}}</td>
                                             <td>
-                                                <a href="{{ route('view.petunjukorganisasi', $dokumen->file_name) }}">
+                                                <a href="{{ route('viewFile', $dokumen->file_name) }}">
                                                     <button type="submit" class="btn btn-primary">
                                                         View
                                                     </button>
@@ -716,13 +716,14 @@
                                             </td>
                                             <td>
                                                 <a
-                                                    href="{{ route('download.petunjukorganisasi', $dokumen->file_name) }}">
+                                                    href="{{ route('downloadFile', $dokumen->file_name) }}">
                                                     <button type="submit" class="btn btn-primary">
                                                         Download
                                                     </button>
                                                 </a>
                                             </td>
                                         </tr><!-- end tr -->
+                                        
                                         @endif
                                         @endforeach
                                     </tbody><!-- end tbody -->

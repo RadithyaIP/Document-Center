@@ -109,12 +109,16 @@ class DokumenController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     *s
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $dokumen = Dokumen::find($id);
+        $dokumen->is_active = '0';
+        $dokumen->is_deleted = '1';
+        $dokumen->save();
+        return redirect()->route('Dokumen.index');
     }
 }

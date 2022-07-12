@@ -457,8 +457,24 @@
                                                 </tr>
                                                 <tr>
                                                     <th><span class="fw-medium">Revisi</span></th>
-                                                    <td><a href="javascript:void(0);"
-                                                            class="link-primary">{{ $dokumens->revisi }}</a>
+                                                    <td>
+                                                        {{ $dokumens->revisi }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span class="fw-medium">Update terakhir</span></th>
+                                                    <td>
+                                                        {{ $dokumens->updated_at }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span class="fw-medium">Activity</span></th>
+                                                    <td>
+                                                    @if($dokumens->is_active == '1')
+                                                        <span class="badge-soft-success">Active</span>
+                                                    @else
+                                                        <span class="badge-soft-fail">Inactive</span>
+                                                    @endif
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -469,19 +485,19 @@
                                                     <th><span class="fw-medium">Action</span></th>
                                                     <td>
                                                         <a
-                                                            href="{{ route('view.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            href="{{ route('viewFile', $dokumens->file_name) }}">
                                                             <button type="submit" class="btn btn-primary">
                                                                 View
                                                             </button>
                                                         </a>
                                                         <a
-                                                            href="{{ route('download.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            href="{{ route('downloadFile', $dokumens->file_name) }}">
                                                             <button type="submit" class="btn btn-primary">
                                                                 Download
                                                             </button>
                                                         </a>
                                                         <a
-                                                            href="{{ route('download.petunjukorganisasi', $dokumens->file_name) }}">
+                                                            href="{{ route('Dokumen.destroy', $dokumens->id) }}">
                                                             <button type="submit" class="btn btn-primary">
                                                                 Delete
                                                             </button>
