@@ -7,6 +7,7 @@ use App\Models\Dokumen;
 use App\Models\User;
 use App\Models\Kategori;
 use App\Models\Divisi;
+use DB;
 
 class DokumenController extends Controller
 {
@@ -97,7 +98,7 @@ class DokumenController extends Controller
         $users = auth()->user();
         $kategoris = Kategori::all();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
+        $dokumens = DB::table('dokumens')->where('id', $id)->first();
         return \view('Dokumen.edit', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
@@ -111,14 +112,14 @@ class DokumenController extends Controller
     public function update(Request $request, $id)
     {
         $dokumens=Dokumen::find($id);
-        $dokumens->no_dokumen->request->input('no_dokumen');
-        $dokumens->kategori->request->input('kategori');
-        $dokumens->nama_dokumen->request->input('nama_dokumen');
-        $dokumens->keterangan->request->input('keterangan');
-        $dokumens->revisi->request->input('revisi');
+        $dokumens->no_dokumen = $request->get('no_dokumen');
+        $dokumens->kategori = $request->get('kategori');
+        $dokumens->nama_dokumen = $request->get('nama_dokumen');
+        $dokumens->keterangan = $request->get('keterangan');
+        $dokumens->revisi = $request->get('revisi');
 
-        $nama_dokumen = $request->input('nama_dokumen');
-        $no_dokumen = $request->input('no_dokumen');
+        $nama_dokumen = $request->get('nama_dokumen');
+        $no_dokumen = $request->get('no_dokumen');
         
         $oldFileName = $dokumens->file_name;
         $newFileName = $fileName = $no_dokumen . '_' . $nama_dokumen . '.pdf';
@@ -126,6 +127,7 @@ class DokumenController extends Controller
         $newFile = public_path('file/'. $newFile_name);
 
         rename($oldFile, $newFile);
+        $dokumens->save();
 
         return redirect()->route('Dokumen.details')->with('success', 'Data berhasil diupdate');
     }

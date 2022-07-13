@@ -13,11 +13,15 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form method="POST" action="{{ route('Dokumen.update', $dokumens->id) }}" id="myForm" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('Dokumen.update', $dokumens->id) }}" id="myForm"
+                        enctype="multipart/form-data">
+                        @method('PUT')
+
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
-                            <input name="no_dokumen" type="text" class="form-control" id="no_dokumen">
+                            <input name="no_dokumen" type="text" class="form-control" id="no_dokumen"
+                                value="{{ $dokumens->no_dokumen }}">
                         </div>
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
@@ -29,15 +33,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
-                            <input name="nama_dokumen" type="text" class="form-control" id="nama_dokumen">
+                            <input name="nama_dokumen" type="text" class="form-control" id="nama_dokumen"
+                                value="{{ $dokumens->nama_dokumen }}">
                         </div>
                         <div class="mb-3">
                             <label for="StartleaveDate" class="form-label">Terakhir Revisi</label>
-                            <input name="revisi" type="date" class="form-control" data-provider="flatpickr" id="revisi">
+                            <input name="revisi" type="date" class="form-control" data-provider="flatpickr" id="revisi"
+                                value="{{ $dokumens->revisi}}">
                         </div>
                         <div class="mb-3">
                             <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                            <textarea name="keterangan" class="form-control" id="keterangan" rows="3"></textarea>
+                            <textarea name="keterangan" class="form-control" id="keterangan" rows="3"
+                                value="{{ $dokumens->keterangan }}"></textarea>
                         </div>
 
 
@@ -53,7 +60,8 @@
 
                                         <div class="">
                                             <div class="fallback">
-                                                <input type="file" name="file" multiple="multiple">
+                                                <input type="file" name="file"
+                                                    multiple="multiple">{{ $dokumens->file_name }}
                                             </div>
                                             <!-- <div class="dz-message needsclick">
                                                 <div class="mb-3">

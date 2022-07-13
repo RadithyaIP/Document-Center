@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dokumen extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'no_dokumen',
         'kategori',
