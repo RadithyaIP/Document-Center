@@ -61,6 +61,14 @@
                                         </button>
                                     </a>
                                 </td>
+                                
+                                <td>
+                                    <a href="{{ route('Dokumen.show', $dokumen->id) }}">
+                                        <button type="submit" class="btn btn-primary">
+                                            Details
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                             @endif
                             @endif
