@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Dokumen.layouts')
 
 @section('content')
 <div class="row">
@@ -30,7 +30,7 @@
                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                         <tbody>
                             @foreach($dokumens as $dokumen)
-                            @if($users->divisi_id == $dokumen->divisi 
+                            @if($users->divisi_id == $dokumen->divisi
                             && $dokumen->kategori_id == $kategoris->id
                             && $dokumen->is_active == '1')
                             <tr>
