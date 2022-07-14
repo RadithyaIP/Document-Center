@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Dokumen;
 use App\Models\User;
 use App\Models\Kategori;
@@ -112,26 +113,25 @@ class DokumenController extends Controller
     public function update(Request $request, $id)
     {
         $dokumens=Dokumen::find($id);
-        $nama_dokumen = $request->get('nama_dokumen');
-        $no_dokumen = $request->get('no_dokumen');
-        $dokumens->no_dokumen = $no_dokumen;
-        $dokumens->kategori = $request->get('kategori');
-        $dokumens->nama_dokumen = $nama_dokumen;
+        $nama_dokumens = $request->get('nama_dokumen');
+        $no_dokumens = $request->get('no_dokumen');
+        $dokumens->no_dokumen = $no_dokumens;
+        $dokumens->kategori_id = $request->kategori;
+        $dokumens->nama_dokumen = $nama_dokumens;
         $dokumens->keterangan = $request->get('keterangan');
         $dokumens->revisi = $request->get('revisi');
 
         
         
         $oldFileName = $request->get('file_name');
-        $newFileName = $no_dokumen . '_' . $nama_dokumen . '.pdf';
+        $newFileName = $no_dokumens . '_' . $nama_dokumens . '.pdf';
         $oldFile = public_path('file/'. $oldFileName);
         $newFile = public_path('file/'. $newFileName);
         $dokumens->file_name=$newFileName;
 
-        rename($oldFile, $newFile);
         $dokumens->save();
 
-        return redirect()->route('Dokumen.details')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('Dokumen.index')->with('success', 'Data berhasil diupdate');
     }
 
     /**

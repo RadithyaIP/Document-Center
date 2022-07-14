@@ -482,6 +482,10 @@
                                                     <td>{{ $dokumens->keterangan }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <th><span class="fw-medium">Nama File</span></th>
+                                                    <td>{{ $dokumens->file_name }}</td>
+                                                </tr>
+                                                <tr>
                                                     <th><span class="fw-medium">Action</span></th>
                                                     <td>
                                                         <a
