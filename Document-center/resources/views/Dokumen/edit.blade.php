@@ -60,8 +60,8 @@
 
                                         <div class="">
                                             <div class="fallback">
-                                                <input type="file" name="file"
-                                                    multiple="multiple">{{ $dokumens->file_name }}
+                                                <input type="hidden" name="file"
+                                                    multiple="multiple" value="{{ $dokumens->file_name }}">{{ $dokumens->file_name }}
                                             </div>
                                             <!-- <div class="dz-message needsclick">
                                                 <div class="mb-3">

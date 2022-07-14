@@ -112,19 +112,21 @@ class DokumenController extends Controller
     public function update(Request $request, $id)
     {
         $dokumens=Dokumen::find($id);
-        $dokumens->no_dokumen = $request->get('no_dokumen');
+        $nama_dokumen = $request->get('nama_dokumen');
+        $no_dokumen = $request->get('no_dokumen');
+        $dokumens->no_dokumen = $no_dokumen;
         $dokumens->kategori = $request->get('kategori');
-        $dokumens->nama_dokumen = $request->get('nama_dokumen');
+        $dokumens->nama_dokumen = $nama_dokumen;
         $dokumens->keterangan = $request->get('keterangan');
         $dokumens->revisi = $request->get('revisi');
 
-        $nama_dokumen = $request->get('nama_dokumen');
-        $no_dokumen = $request->get('no_dokumen');
         
-        $oldFileName = $dokumens->file_name;
-        $newFileName = $fileName = $no_dokumen . '_' . $nama_dokumen . '.pdf';
-        $oldFile = public_path('file/'. $oldFile_name);
-        $newFile = public_path('file/'. $newFile_name);
+        
+        $oldFileName = $request->get('file_name');
+        $newFileName = $no_dokumen . '_' . $nama_dokumen . '.pdf';
+        $oldFile = public_path('file/'. $oldFileName);
+        $newFile = public_path('file/'. $newFileName);
+        $dokumens->file_name=$newFileName;
 
         rename($oldFile, $newFile);
         $dokumens->save();
