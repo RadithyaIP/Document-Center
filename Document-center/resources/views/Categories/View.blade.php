@@ -30,7 +30,9 @@
                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                         <tbody>
                             @foreach($dokumens as $dokumen)
-                            @if($users->divisi_id == $dokumen->divisi && $dokumen->kategori_id == $kategoris->id)
+                            @if($users->divisi_id == $dokumen->divisi 
+                            && $dokumen->kategori_id == $kategoris->id
+                            && $dokumen->is_active == '1')
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">

@@ -281,40 +281,18 @@
                                 aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Categories</span>
                             </a>
+                            @php( $kategoris = \App\Models\Kategori::all() )
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
+                                    @foreach($kategoris as $kategori)
                                     <li class="nav-item">
-                                        <a href="{{ route('Categories.index') }}" class="nav-link"
-                                            data-key="t-calendar"> Petunjuk
-                                            Organisasi
+                                        <a href="{{ route('viewKategori', $kategori->id) }}" class="nav-link"
+                                            data-key="t-calendar">
+                                            {{ $kategori->nama }}
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ ('/Sop') }}" class="nav-link" data-key="t-chat"> SOP </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ ('/StandartOrganisasi') }}" class="nav-link" data-key="t-chat">
-                                            Standart Organisasi
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ ('/ManagementRisk') }}" class="nav-link" data-key="t-chat">
-                                            Manajemen Risiko
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ ('/IAOL') }}" class="nav-link" data-key="t-chat"> IAOL </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ ('/IBPR') }}" class="nav-link" data-key="t-chat"> IBPR </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <div class="collapse menu-dropdown" id="sidebarEcommerce">
-                                            <ul class="nav nav-sm flex-column">
-                                    </li>
-                                </ul>
+                                    @endforeach
                             </div>
-
                         </li>
                     </ul>
                 </div>

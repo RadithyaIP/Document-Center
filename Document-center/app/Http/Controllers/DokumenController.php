@@ -115,19 +115,12 @@ class DokumenController extends Controller
         $dokumens=Dokumen::find($id);
         $nama_dokumens = $request->get('nama_dokumen');
         $no_dokumens = $request->get('no_dokumen');
+        
         $dokumens->no_dokumen = $no_dokumens;
         $dokumens->kategori_id = $request->kategori;
         $dokumens->nama_dokumen = $nama_dokumens;
         $dokumens->keterangan = $request->get('keterangan');
         $dokumens->revisi = $request->get('revisi');
-
-        
-        
-        $oldFileName = $request->get('file_name');
-        $newFileName = $no_dokumens . '_' . $nama_dokumens . '.pdf';
-        $oldFile = public_path('file/'. $oldFileName);
-        $newFile = public_path('file/'. $newFileName);
-        $dokumens->file_name=$newFileName;
 
         $dokumens->save();
 
