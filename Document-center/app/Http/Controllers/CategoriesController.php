@@ -26,57 +26,14 @@ class CategoriesController extends Controller
         return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
-
-    public function petunjukOrganisasi()
+    public function kategori($id)
     {
         $users = auth()->user();
-        $kategoris = Kategori::all();
+        //$kategoris = Kategori::all();
+        $kategoris = Kategori::where('id', $id)->first();
         $divisis = Divisi::all();
         $dokumens = Dokumen::all();
-        return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
-
-    public function Sop()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        
-        return view('Categories.SOP', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
-
-    public function StandartOrganisasi()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        return view('Categories.StandartOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
-    public function ManagementRisk()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        return view('Categories.ManagementRisk', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
-    public function IAOL()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        return view('Categories.IAOL', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
-    public function IBPR()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        return view('Categories.IBPR', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+        return view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     //Download file

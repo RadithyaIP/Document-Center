@@ -23,12 +23,13 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('Dokumen', DokumenController::class);
     Route::resource('Categories', CategoriesController::class);
-    Route::get('/PetunjukOrganisasi', [App\Http\Controllers\CategoriesController::class, 'PetunjukOrganisasi'])->name('petunjukOrganisasi');
-    Route::get('/Sop', [App\Http\Controllers\CategoriesController::class, 'Sop'])->name('Sop');
-    Route::get('/StandartOrganisasi', [App\Http\Controllers\CategoriesController::class, 'StandartOrganisasi'])->name('StandartOrganisasi');
-    Route::get('/ManagementRisk', [App\Http\Controllers\CategoriesController::class, 'ManagementRisk'])->name('ManagementRisk');
-    Route::get('/IAOL', [App\Http\Controllers\CategoriesController::class, 'IAOL'])->name('IAOL');
-    Route::get('/IBPR', [App\Http\Controllers\CategoriesController::class, 'IBPR'])->name('IBPR');
+    // Route::get('/PetunjukOrganisasi', [App\Http\Controllers\CategoriesController::class, 'PetunjukOrganisasi'])->name('petunjukOrganisasi');
+    // Route::get('/Sop', [App\Http\Controllers\CategoriesController::class, 'Sop'])->name('Sop');
+    // Route::get('/StandartOrganisasi', [App\Http\Controllers\CategoriesController::class, 'StandartOrganisasi'])->name('StandartOrganisasi');
+    // Route::get('/ManagementRisk', [App\Http\Controllers\CategoriesController::class, 'ManagementRisk'])->name('ManagementRisk');
+    // Route::get('/IAOL', [App\Http\Controllers\CategoriesController::class, 'IAOL'])->name('IAOL');
+    // Route::get('/IBPR', [App\Http\Controllers\CategoriesController::class, 'IBPR'])->name('IBPR');
+    Route::get('/Kategori/{id}', [App\Http\Controllers\CategoriesController::class, 'kategori'])->name('viewKategori');
     Route::get('/download/{file_name}', [App\Http\Controllers\CategoriesController::class, 'download'])->name('downloadFile');
     
     Route::get('/view/{filename}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('viewFile');

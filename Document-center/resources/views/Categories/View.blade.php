@@ -5,7 +5,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Petunjuk Organisasi</h4>
+                <h4 class="card-title mb-0 flex-grow-1">{{ $kategoris->nama }}</h4>
                 <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
                         <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -30,13 +30,12 @@
                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                         <tbody>
                             @foreach($dokumens as $dokumen)
-                            @if($users->divisi_id == $dokumen->divisi)
-                            @if($dokumen->kategori_id == "5")
+                            @if($users->divisi_id == $dokumen->divisi && $dokumen->kategori_id == $kategoris->id)
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div>
-                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html"
+                                            <h5 class="fs-14 my-1"><a href="{{ route('Dokumen.show', $dokumen->id) }}"
                                                     class="text-reset">{{"$dokumen->nama_dokumen"}}</a></h5>
                                             <!-- <span class="text-muted"></span> -->
                                         </div>
@@ -62,7 +61,6 @@
                                     </a>
                                 </td>
                             </tr>
-                            @endif
                             @endif
                             @endforeach
                             <!-- <tr>
