@@ -5,6 +5,16 @@
 <div class="row justify-content-center">
     <div class="col-xxl-12">
         <div class="card">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">Upload File</h4>
                 <div class="flex-shrink-0">
@@ -13,18 +23,19 @@
             <div class="card-body">
                 <p class="text-muted">Silahkan Upload Dokumen Sesuai <b>Kategori</b> Yang Anda Pilih</p>
                 <div class="live-preview">
-                    <form method="POST"action="{{ route('Dokumen.store') }}" id="myForm" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('Dokumen.store') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
-                            <input name="no_dokumen"type="text" class="form-control" id="no_dokumen" placeholder="Enter Nomor Dokumen">
+                            <input name="no_dokumen" type="text" class="form-control" id="no_dokumen"
+                                placeholder="Enter Nomor Dokumen">
                         </div>
                         <div class="mb-3">
-                        <label for="kategori" class="form-label">Kategori</label>
+                            <label for="kategori" class="form-label">Kategori</label>
                             <select name="kategori" class="form-control" id="kategori">
-                            @foreach ($kategoris as $kategori)
+                                @foreach ($kategoris as $kategori)
                                 <option value="{{$kategori->id}}">{{ "$kategori->nama" }}</option>
-                            @endforeach
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
@@ -36,25 +47,26 @@
                         <div class="mb-3">
                             <label for="divisi" class="form-label">Divisi</label>
                             <select name="divisi" class="form-control" id="divisi">
-                            @foreach ($divisis as $divisi)
-                            @if ($divisi->id  == $users->divisi_id)
+                                @foreach ($divisis as $divisi)
+                                @if ($divisi->id == $users->divisi_id)
                                 <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}</option>
-                            @endif
-                            @endforeach
-                            
+                                @endif
+                                @endforeach
+
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
-                            <input name="nama_dokumen"type="text" class="form-control" id="nama_dokumen" placeholder="Enter Nama Dokumen">
+                            <input name="nama_dokumen" type="text" class="form-control" id="nama_dokumen"
+                                placeholder="Enter Nama Dokumen">
                         </div>
                         <div class="mb-3">
                             <label for="StartleaveDate" class="form-label">Terakhir Revisi</label>
-                            <input name="revisi"type="date" class="form-control" data-provider="flatpickr" id="revisi">
+                            <input name="revisi" type="date" class="form-control" data-provider="flatpickr" id="revisi">
                         </div>
                         <div class="mb-3">
                             <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                            <textarea name="keterangan"class="form-control" id="keterangan" rows="3"
+                            <textarea name="keterangan" class="form-control" id="keterangan" rows="3"
                                 placeholder="Enter your message"></textarea>
                         </div>
 
@@ -82,10 +94,10 @@
                                             </div>
                                         </div> -->
 
-                                        <ul class="list-unstyled mb-0" id="dropzone-preview">
-                                            <li class="mt-2" id="dropzone-preview-list">
-                                                <!-- This is used as the file preview template -->
-                                                <!-- <div class="border rounded">
+                                            <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                                <li class="mt-2" id="dropzone-preview-list">
+                                                    <!-- This is used as the file preview template -->
+                                                    <!-- <div class="border rounded">
                                                     <div class="d-flex p-2">
                                                         <div class="flex-shrink-0 me-3">
                                                             <div class="avatar-sm bg-light rounded">
@@ -107,19 +119,19 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
-                                            </li>
-                                        </ul>
-                                        <!-- end dropzon-preview -->
+                                                </li>
+                                            </ul>
+                                            <!-- end dropzon-preview -->
+                                        </div>
+                                        <!-- end card body -->
                                     </div>
-                                    <!-- end card body -->
-                                </div>
-                                <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                                    <!-- end card -->
+                                </div> <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                     </form>
                 </div>
                 <div class="d-none code-view">
