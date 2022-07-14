@@ -24,11 +24,11 @@
                                 value="{{ $dokumens->no_dokumen }}">
                         </div>
                         <div class="mb-3">
-                            <label for="kategori" class="form-label">Kategori</label>
+                        <label for="kategori" class="form-label">Kategori</label>
                             <select name="kategori" class="form-control" id="kategori">
-                                @foreach ($kategoris as $kategori)
+                            @foreach ($kategoris as $kategori)
                                 <option value="{{$kategori->id}}">{{ "$kategori->nama" }}</option>
-                                @endforeach
+                            @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
@@ -39,12 +39,12 @@
                         <div class="mb-3">
                             <label for="StartleaveDate" class="form-label">Terakhir Revisi</label>
                             <input name="revisi" type="date" class="form-control" data-provider="flatpickr" id="revisi"
-                                value="{{ $dokumens->revisi}}">
+                                value="{{ $dokumens->revisi}}" >
                         </div>
                         <div class="mb-3">
                             <label for="VertimeassageInput" class="form-label">Keterangan</label>
                             <textarea name="keterangan" class="form-control" id="keterangan" rows="3"
-                                value="{{ $dokumens->keterangan }}"></textarea>
+                                value="{{ $dokumens->keterangan }}">{{ $dokumens->keterangan }}</textarea>
                         </div>
 
 
