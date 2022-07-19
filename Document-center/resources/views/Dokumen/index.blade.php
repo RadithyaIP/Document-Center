@@ -64,139 +64,15 @@
             <!--end row-->
 
             <div class="row">
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-3 col-md-6">
                     <!-- card -->
+                    @foreach($kategoris as $kategori)
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> PETUNJUK
-                                        ORGANISASI
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <h5 class="text-success fs-14 mb-0">
-                                        <i class="ri-arrow-right-up-line fs-13 align-middle">
-                                        </i> +16.24 %
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value"
-                                            data-target="559.25">0</span>k </h4>
-                                    <a href="/Kategori/1" class="text-decoration-underline">Lihat List Dokumen</a>
-                                </div>
-                                <div class="avatar-sm flex-shrink-0">
-                                    <span class="avatar-title bg-success rounded fs-3">
-                                        <i class="bx bx-dollar-circle"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-                <div class="col-xl-4 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">SOP</p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <h5 class="text-danger fs-14 mb-0">
-                                        <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                            data-target="36894">0</span></h4>
-                                    <a href="/Kategori/2" class="text-decoration-underline">Lihat List Dokumen</a>
-                                </div>
-                                <div class="avatar-sm flex-shrink-0">
-                                    <span class="avatar-title bg-info rounded fs-3">
-                                        <i class="bx bx-shopping-bag"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-
-                <div class="col-xl-4 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">STANDART
-                                        ORGANISASI</p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <h5 class="text-success fs-14 mb-0">
-                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                            data-target="183.35">0</span>M </h4>
-                                    <a href="/Kategori/3" class="text-decoration-underline">Lihat List Dokumen</a>
-                                </div>
-                                <div class="avatar-sm flex-shrink-0">
-                                    <span class="avatar-title bg-warning rounded fs-3">
-                                        <i class="bx bx-user-circle"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-                <div class="col-xl-4 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> MANAGEMENT RISIKO
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <h5 class="text-muted fs-14 mb-0">
-                                        +0.00 %
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value"
-                                            data-target="165.89">0</span>k </h4>
-                                    <a href="/Kategori/4" class="text-decoration-underline">Lihat List Dokumen</a>
-                                </div>
-                                <div class="avatar-sm flex-shrink-0">
-                                    <span class="avatar-title bg-danger rounded fs-3">
-                                        <i class="bx bx-wallet"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-                <div class="col-xl-4 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> IAOL
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        {{ $kategori->nama }}
                                     </p>
                                 </div>
                                 <div class="flex-shrink-0">
@@ -209,7 +85,7 @@
                                 <div>
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value"
                                             data-target="559.25">0</span>k </h4>
-                                    <a href="/Kategori/5" class="text-decoration-underline">Lihat List Dokumen</a>
+                                    <a href="#" class="text-decoration-underline">View net earnings</a>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-success rounded fs-3">
@@ -219,65 +95,84 @@
                             </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
+                    @endforeach
                 </div><!-- end col -->
-
-                <div class="col-xl-4 col-md-6">
-                    <!-- card -->
-                    <div class="card card-animate">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> IBPR
-                                    </p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <h5 class="text-success fs-14 mb-0">
-                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value"
-                                            data-target="559.25">0</span>k </h4>
-                                    <a href="/Kategori/6" class="text-decoration-underline">Lihat List Dokumen</a>
-                                </div>
-                                <div class="avatar-sm flex-shrink-0">
-                                    <span class="avatar-title bg-success rounded fs-3">
-                                        <i class="bx bx-dollar-circle"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
             </div> <!-- end row-->
 
             <div class="row">
                 <div class="col-xl-4">
                     <div class="card card-height-100">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Store Visits by Source</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">Chart Kategori</h4>
                             <div class="flex-shrink-0">
-                                <div class="dropdown card-header-dropdown">
-                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="text-muted">Report<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Download Report</a>
-                                        <a class="dropdown-item" href="#">Export</a>
-                                        <a class="dropdown-item" href="#">Import</a>
-                                    </div>
-                                </div>
                             </div>
                         </div><!-- end card header -->
 
                         <div class="card-body">
-                            <div id="store-visits-source"
+                            <!-- <div id="store-visits-source"
                                 data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
-                                class="apex-charts" dir="ltr"></div>
+                                class="apex-charts" dir="ltr"></div> -->
+                            <!-- <div id="chart"></div>
+
+                            <script>
+                            var options = {
+                                series: [44, 55, 13, 43, 22, 10],
+                                chart: {
+                                    width: 500,
+                                    type: 'pie',
+                                },
+                                labels: ['PETUNJUK ORGANISASI', 'SOP', 'STANDRD ORGANISASI', 'MANAJEMEN RISIKO', 'IAOL', 'IBPR'],
+                                responsive: [{
+                                    breakpoint: 700,
+                                    options: {
+                                        chart: {
+                                            width: 200
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            var chart = new ApexCharts(document.querySelector("#chart"), options);
+                            chart.render();
+                            </script> -->
+
+                            <div>
+                                <div class="chart-wrap">
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+
+                            <script>
+                            var options = {
+                                series: [44, 55, 13, 33],
+                                chart: {
+                                    width: 380,
+                                    type: 'donut',
+                                },
+                                responsive: [{
+                                    breakpoint: 480,
+                                    options: {
+                                        chart: {
+                                            width: 200
+                                        },
+                                        legend: {
+                                            show: false
+                                        }
+                                    }
+                                }],
+                                legend: {
+                                    position: 'right',
+                                    offsetY: 0,
+                                    height: 230,
+                                }
+                            };
+
+                            var chart = new ApexCharts(document.querySelector("#chart"), options);
+                            chart.render();
+                            </script>
                         </div>
                     </div> <!-- .card-->
                 </div> <!-- .col-->

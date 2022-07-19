@@ -1,4 +1,69 @@
 <!doctype html>
+
+
+<style>
+      
+        #chart {
+      max-width: 480px;
+      margin: 35px auto;
+      padding: 0;
+    }
+    .actions {
+      top: -10px;
+      position: relative;
+      z-index: 10;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    button {
+      color: #fff;
+      background: #20b2aa;
+      padding: 5px 10px;
+      margin: 2px;
+      font-weight: bold;
+      font-size: 13px;
+      border-radius: 5px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    @media only screen and (max-width: 480px) {
+      .actions {
+        margin-top: 0;
+        left: 0
+      }
+    }
+      
+    </style>
+
+<!-- <script>
+window.Promise ||
+    document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+    )
+window.Promise ||
+    document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+    )
+window.Promise ||
+    document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+    )
+</script> -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+<script>
+// Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+// Based on https://gist.github.com/blixt/f17b47c62508be59987b
+var _seed = 42;
+Math.random = function() {
+    _seed = _seed * 16807 % 2147483647;
+    return (_seed - 1) / 2147483646;
+};
+</script>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none">
 
@@ -31,6 +96,7 @@
     <link href="{{ asset('assets') }}/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('assets') }}/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets') }}/styles.css" rel="stylesheet" />
 
 
 </head>
@@ -352,18 +418,19 @@
                             aria-expanded="false" aria-controls="sidebarApps">
                             <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Categories</span>
                         </a>
-                        @php( $kategoris = \App\Models\Kategori::all() )  
+                        @php( $kategoris = \App\Models\Kategori::all() )
                         <div class="collapse menu-dropdown" id="sidebarApps">
                             <ul class="nav nav-sm flex-column">
-                            @foreach($kategoris as $kategori)
-                            <li class="nav-item">
-                                    <a href="{{ route('viewKategori', $kategori->id) }}" class="nav-link" data-key="t-calendar">
+                                @foreach($kategoris as $kategori)
+                                <li class="nav-item">
+                                    <a href="{{ route('viewKategori', $kategori->id) }}" class="nav-link"
+                                        data-key="t-calendar">
                                         {{ $kategori->nama }}
                                     </a>
                                 </li>
-                            @endforeach
+                                @endforeach
                         </div>
-                        
+
                     </li>
                 </ul>
             </div>
