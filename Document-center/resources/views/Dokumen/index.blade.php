@@ -66,6 +66,9 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
+                    <?php
+                    $counter = 0;
+                    ?>
                     @foreach($kategoris as $kategori)
                     <div class="card card-animate">
                         <div class="card-body">
@@ -77,15 +80,19 @@
                                 </div>
                                 <div class="flex-shrink-0">
                                     <h5 class="text-success fs-14 mb-0">
-                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
+                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>{{ $kategori->total_doc }}
                                     </h5>
                                 </div>
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value"
-                                            data-target="559.25">0</span>k </h4>
+                                   
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
+                                            data-target="{{ $kategori->total_doc }}">
                                     <a href="#" class="text-decoration-underline">View net earnings</a>
+                                    <?php
+                                        $counter++;
+                                    ?>
                                 </div>
                                 <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-success rounded fs-3">

@@ -7,6 +7,7 @@ use App\Models\Dokumen;
 use App\Models\User;
 use App\Models\Kategori;
 use App\Models\Divisi;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,9 +29,22 @@ class HomeController extends Controller
     public function index()
     {
         $users = auth()->user();
-        $kategoris = Kategori::all();
+        //$kategoris = Kategori::all();
+        
+        $kategoris = Kategori::leftjoin('dokumens', 'dokumens.kategori_id','=','kategoris.id')
+                    ->select("kategoris.nama")
+                    ->selectRaw('count(dokumens.id) as total_doc')
+                    ->groupBy('kategoris.id')
+                    ->get();
         $divisis = Divisi::all();
         $dokumens = Dokumen::all();
+        //DB::enableQueryLog();
+        // $dokumens = Dokumen::select("*")
+        // ->selectRaw('count(*) as total_doc')
+        // ->groupBy('kategori_id')
+        // ->get();
+        //dd(DB::getQueryLog());
+        
         return view('Dokumen.index', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 }

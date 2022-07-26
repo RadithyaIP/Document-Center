@@ -22,7 +22,14 @@ class DokumenController extends Controller
         $users = auth()->user();
         $kategoris = Kategori::all();
         $divisis = Divisi::all();
+        $kategoris = Kategori::leftjoin('dokumens', 'dokumens.kategori_id','=','kategoris.id')
+                    ->select("kategoris.nama")
+                    ->selectRaw('count(dokumens.id) as total_doc')
+                    ->groupBy('kategoris.id')
+                    ->get();
+        $divisis = Divisi::all();
         $dokumens = Dokumen::all();
+
         return view('Dokumen.index', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
