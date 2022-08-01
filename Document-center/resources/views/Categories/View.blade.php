@@ -6,7 +6,17 @@
         <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">{{ $kategoris->nama }}</h4>
-                <div class="flex-shrink-0">
+
+                <form class="float-right form-inline" id="searchForm" method="get" action="{{ route('home') }}" role="search">
+                    <div class="form-group">
+                        <input type="text" name="keyword" class="form-control" id="Keyword" aria-describedby="Keyword" placeholder="Keyword" value="{{request()->query('keyword')}}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-2">Cari</button>
+                    <a href="{{ route('home') }}">
+                        <button type="button" class="btn btn-danger">Reset</button>
+                    </a>
+                </form>
+                <!-- <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
                         <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -22,7 +32,7 @@
                             <a class="dropdown-item" href="#">Last Month</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div><!-- end card header -->
 
             <div class="card-body">
@@ -109,10 +119,11 @@
 
                 <div class="align-items-center mt-4 pt-2 justify-content-between d-flex">
                     <div class="flex-shrink-0">
-                        <div class="text-muted">
-                            Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
+
+                        <div class="d-flex">
+                            {{ $dokumens->links('pagination::bootstrap-4') }}
                         </div>
-                    </div>
+                    <!-- </div>
                     <ul class="pagination pagination-separated pagination-sm mb-0">
                         <li class="page-item disabled">
                             <a href="#" class="page-link">←</a>
@@ -130,7 +141,7 @@
                             <a href="#" class="page-link">→</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
 
             </div>
         </div>

@@ -17,22 +17,13 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $users = auth()->user();
-        $kategoris = Kategori::all();
-        $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-        return view('Categories.PetunjukOrganisasi', compact ('users', 'kategoris', 'divisis', 'dokumens'));
-    }
 
-    public function kategori($id)
+    public function kategori($id, Request $request)
     {
         $users = auth()->user();
-        //$kategoris = Kategori::all();
         $kategoris = Kategori::where('id', $id)->first();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
+        $dokumens = Dokumen::paginate(10);
         return view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
@@ -59,7 +50,7 @@ class CategoriesController extends Controller
         
     }
 
-
+   
     
     /**
      * Show the form for creating a new resource.
