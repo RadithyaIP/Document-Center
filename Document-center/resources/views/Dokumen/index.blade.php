@@ -64,12 +64,13 @@
             <!--end row-->
 
             <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <?php
+                <?php
                     $counter = 0;
                     ?>
                     @foreach($kategoris as $kategori)
+                <div class="col-xl-3 col-md-6">
+                    <!-- card -->
+                    
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -102,87 +103,12 @@
                             </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
-                    @endforeach
+                    
                 </div><!-- end col -->
+                @endforeach
             </div> <!-- end row-->
 
             <div class="row">
-                <div class="col-xl-4">
-                    <div class="card card-height-100">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Chart Kategori</h4>
-                            <div class="flex-shrink-0">
-                            </div>
-                        </div><!-- end card header -->
-
-                        <div class="card-body">
-                            <!-- <div id="store-visits-source"
-                                data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
-                                class="apex-charts" dir="ltr"></div> -->
-                            <!-- <div id="chart"></div>
-
-                            <script>
-                            var options = {
-                                series: [44, 55, 13, 43, 22, 10],
-                                chart: {
-                                    width: 500,
-                                    type: 'pie',
-                                },
-                                labels: ['PETUNJUK ORGANISASI', 'SOP', 'STANDRD ORGANISASI', 'MANAJEMEN RISIKO', 'IAOL', 'IBPR'],
-                                responsive: [{
-                                    breakpoint: 700,
-                                    options: {
-                                        chart: {
-                                            width: 200
-                                        },
-                                        legend: {
-                                            position: 'bottom'
-                                        }
-                                    }
-                                }]
-                            };
-
-                            var chart = new ApexCharts(document.querySelector("#chart"), options);
-                            chart.render();
-                            </script> -->
-
-                            <div>
-                                <div class="chart-wrap">
-                                    <div id="chart"></div>
-                                </div>
-                            </div>
-
-                            <script>
-                            var options = {
-                                series: [44, 55, 13, 33],
-                                chart: {
-                                    width: 380,
-                                    type: 'donut',
-                                },
-                                responsive: [{
-                                    breakpoint: 480,
-                                    options: {
-                                        chart: {
-                                            width: 200
-                                        },
-                                        legend: {
-                                            show: false
-                                        }
-                                    }
-                                }],
-                                legend: {
-                                    position: 'right',
-                                    offsetY: 0,
-                                    height: 230,
-                                }
-                            };
-
-                            var chart = new ApexCharts(document.querySelector("#chart"), options);
-                            chart.render();
-                            </script>
-                        </div>
-                    </div> <!-- .card-->
-                </div> <!-- .col-->
 
                 <div class="col-xl-8">
                     <div class="card">
