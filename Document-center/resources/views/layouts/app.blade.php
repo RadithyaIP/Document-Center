@@ -1,69 +1,4 @@
 <!doctype html>
-
-
-<style>
-      
-        #chart {
-      max-width: 480px;
-      margin: 35px auto;
-      padding: 0;
-    }
-    .actions {
-      top: -10px;
-      position: relative;
-      z-index: 10;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    button {
-      color: #fff;
-      background: #20b2aa;
-      padding: 5px 10px;
-      margin: 2px;
-      font-weight: bold;
-      font-size: 13px;
-      border-radius: 5px;
-    }
-    p {
-      margin: 10px 0;
-    }
-    @media only screen and (max-width: 480px) {
-      .actions {
-        margin-top: 0;
-        left: 0
-      }
-    }
-      
-    </style>
-
-<!-- <script>
-window.Promise ||
-    document.write(
-        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-    )
-window.Promise ||
-    document.write(
-        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-    )
-window.Promise ||
-    document.write(
-        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-    )
-</script> -->
-
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-
-<script>
-// Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
-// Based on https://gist.github.com/blixt/f17b47c62508be59987b
-var _seed = 42;
-Math.random = function() {
-    _seed = _seed * 16807 % 2147483647;
-    return (_seed - 1) / 2147483646;
-};
-</script>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none">
 
@@ -83,6 +18,10 @@ Math.random = function() {
     <!-- jsvectormap css -->
     <link href="{{ asset('assets') }}/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- Sweet Alert css-->
+    <link href="{{ asset('assets') }}/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+
     <!--Swiper slider css-->
     <link href="{{ asset('assets') }}/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -96,7 +35,7 @@ Math.random = function() {
     <link href="{{ asset('assets') }}/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('assets') }}/css/custom.min.css" rel="stylesheet" type="text/css" />
-    
+
 
 </head>
 
@@ -486,6 +425,17 @@ Math.random = function() {
         <script src="{{ asset('assets') }}/libs/feather-icons/feather.min.js"></script>
         <script src="{{ asset('assets') }}/js/pages/plugins/lord-icon-2.1.0.js"></script>
         <script src="{{ asset('assets') }}/js/plugins.js"></script>
+
+        <!-- prismjs plugin -->
+        <script src="{{ asset('assets') }}/libs/prismjs/prism.js"></script>
+        <script src="{{ asset('assets') }}/libs/list.js/list.min.js"></script>
+        <script src="{{ asset('assets') }}/libs/list.pagination.js/list.pagination.min.js"></script>
+
+        <!-- listjs init -->
+        <script src="{{ asset('assets') }}/js/scriptModal.init.js"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('assets') }}/libs/sweetalert2/sweetalert2.min.js"></script>
 
         <!-- apexcharts -->
         <script src="{{ asset('assets') }}/libs/apexcharts/apexcharts.min.js"></script>

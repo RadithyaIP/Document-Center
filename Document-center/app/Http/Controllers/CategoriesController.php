@@ -22,9 +22,10 @@ class CategoriesController extends Controller
     {
         $users = auth()->user();
         $kategoris = Kategori::where('id', $id)->first();
+        $kateg = Kategori::all();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::paginate(10);
-        return view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+        $dokumens = Dokumen::all();
+        return view('Categories.View', compact ('users','kateg', 'kategoris', 'divisis', 'dokumens'));
     }
 
     //Download file

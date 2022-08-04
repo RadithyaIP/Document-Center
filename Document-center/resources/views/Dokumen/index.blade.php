@@ -67,10 +67,10 @@
                 <?php
                     $counter = 0;
                     ?>
-                    @foreach($kategoris as $kategori)
+                @foreach($kategoris as $kategori)
                 <div class="col-xl-3 col-md-6">
                     <!-- card -->
-                    
+
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -81,17 +81,18 @@
                                 </div>
                                 <div class="flex-shrink-0">
                                     <h5 class="text-success fs-14 mb-0">
-                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>{{ $kategori->total_doc }}
+                                        <i
+                                            class="ri-arrow-right-up-line fs-13 align-middle"></i>{{ $kategori->total_doc }}
                                     </h5>
                                 </div>
                             </div>
                             <div class="d-flex align-items-end justify-content-between mt-4">
                                 <div>
-                                   
+
                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                             data-target="{{ $kategori->total_doc }}">
-                                    <a href="#" class="text-decoration-underline">View net earnings</a>
-                                    <?php
+
+                                            <?php
                                         $counter++;
                                     ?>
                                 </div>
@@ -103,14 +104,14 @@
                             </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
-                    
+
                 </div><!-- end col -->
                 @endforeach
             </div> <!-- end row-->
 
             <div class="row">
 
-                <div class="col-xl-8">
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">Recent Orders</h4>

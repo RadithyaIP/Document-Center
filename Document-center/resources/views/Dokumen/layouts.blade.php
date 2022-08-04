@@ -16,6 +16,9 @@
     <link rel="shortcut icon" href="{{ asset('assets') }}/images/ship1.png">
 
 
+    <!-- Sweet Alert css-->
+    <link href="{{ asset('assets') }}/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
     <!-- dropzone css -->
     <link rel="stylesheet" href="assets/libs/dropzone/dropzone.css" type="text/css" />
 
@@ -375,6 +378,14 @@
 
     <!-- prismjs plugin -->
     <script src="{{ asset('assets') }}/libs/prismjs/prism.js"></script>
+    <script src="{{ asset('assets') }}/libs/list.js/list.min.js"></script>
+    <script src="{{ asset('assets') }}/libs/list.pagination.js/list.pagination.min.js"></script>
+
+    <!-- listjs init -->
+    <script src="{{ asset('assets') }}/js/scriptModal.js"></script>
+
+    <!-- Sweet Alerts js -->
+    <script src="{{ asset('assets') }}/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <script src="{{ asset('assets') }}/js/app.js"></script>
 

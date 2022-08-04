@@ -104,10 +104,10 @@ class DokumenController extends Controller
     public function edit($id)
     {
         $users = auth()->user();
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('id', $id)->first();
         $divisis = Divisi::all();
         $dokumens = DB::table('dokumens')->where('id', $id)->first();
-        return \view('Dokumen.edit', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+        return \view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**

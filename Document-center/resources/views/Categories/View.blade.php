@@ -5,17 +5,18 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">{{ $kategoris->nama }}</h4>
+                <h4 class="card-title mb-0"></h4>
             </div><!-- end card header -->
 
             <div class="card-body">
-                <div id="customerList">
+                <div id="DokumenList">
                     <div class="row g-4 mb-3">
                         <div class="col-sm-auto">
                             <div>
-                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-success edit-btn" data-bs-toggle="modal"
                                     id="create-btn" data-bs-target="#showModal"><i
-                                        class="ri-add-line align-bottom me-1"></i> Add</button>
+                                        class="ri-add-line align-bottom me-1"></i>
+                                    Add</button>
                                 <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
                                         class="ri-delete-bin-2-line"></i></button>
                             </div>
@@ -31,7 +32,7 @@
                     </div>
 
                     <div class="table-responsive table-card mt-3 mb-1">
-                        <table class="table align-middle table-nowrap" id="customerTable">
+                        <table class="table align-middle table-nowrap" id="DokumenTable">
 
                             <thead class="table-light">
                                 <tr>
@@ -41,7 +42,7 @@
                                                 value="option">
                                         </div>
                                     </th>
-                                    <th class="sort" data-sort="customer_name">User</th>
+                                    <th class="sort" data-sort="user">User</th>
                                     <th class="sort" data-sort="no_dokumen">No Dokumen</th>
                                     <th class="sort" data-sort="nama_dokumen">Nama Dokumen</th>
                                     <th class="sort" data-sort="revisi">Revisi Dokumen</th>
@@ -69,7 +70,7 @@
                                     </th>
                                     <td class="id" style="display:none;"><a href="javascript:void(0);"
                                             class="fw-medium link-primary">#VZ2101</a></td>
-                                    <td class="customer_name">{{ "$users->name" }}</td>
+                                    <td class="user_id">{{ "$users->name" }}</td>
                                     <td class="no_dokumen">{{"$dokumen->no_dokumen"}}</td>
                                     <td class="nama_dokumen">{{"$dokumen->nama_dokumen"}}</td>
                                     <td class="revisi">{{"$dokumen->created_at"}}</td>
@@ -89,8 +90,8 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endif
-                            @endforeach
+                                @endif
+                                @endforeach
                             </tbody>
                         </table>
                         <div class="noresult" style="display: none">
@@ -132,49 +133,88 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     id="close-modal"></button>
             </div>
-            <form>
+            <form method="POST" action="{{ route('Dokumen.update', $dokumens->id) }}" id="myForm" enctype="form-data">
+                @csrf
                 <div class="modal-body">
 
-                    <div class="mb-3" id="modal-id" style="display: none;">
-                        <label for="id-field" class="form-label">ID</label>
-                        <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                    <div class="mb-3" id="modal-id">
+                        <label for="no_dokumen" class="form-label">No Dokumen</label>
+                        <input type="text" id="no_dokumen" class="form-control" placeholder="Enter Nomor Dokumen" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="customername-field" class="form-label">No Dokumen</label>
-                        <input type="text" id="customername-field" class="form-control" placeholder="Enter Name"
-                            required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email-field" class="form-label">Nama Dokumen</label>
-                        <input type="email" id="email-field" class="form-control" placeholder="Enter Email" required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone-field" class="form-label">Revisi Dokumen</label>
-                        <input type="text" id="phone-field" class="form-control" placeholder="Enter Phone no."
-                            required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="date-field" class="form-label">Joining Date</label>
-                        <input type="text" id="date-field" class="form-control" placeholder="Select Date" required />
-                    </div>
-
-                    <div>
-                        <label for="status-field" class="form-label">Status</label>
-                        <select class="form-control" data-trigger name="status-field" id="status-field">
-                            <option value="">Status</option>
-                            <option value="Active">Active</option>
-                            <option value="Block">Block</option>
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select name="kategori" class="form-control" id="kategori">
+                            @foreach ($kateg as $kategs)
+                            <option value="{{$kategs->id}}">{{ "$kategs->nama" }}</option>
+                            @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user_id" class="form-label">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            <option value="{{$users->id}}">{{ "$users->name" }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="divisi" class="form-label">Divisi</label>
+                        <select name="divisi" class="form-control" id="divisi">
+                            @foreach ($divisis as $divisi)
+                            @if ($divisi->id == $users->divisi_id)
+                            <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}</option>
+                            @endif
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
+                        <input type="text" id="nama_dokumen" class="form-control" placeholder="Enter Nama Dokumen"
+                            required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="StartleaveDate" class="form-label">Revisi Dokumen</label>
+                        <input type="date" id="revisi" class="form-control" data-provider="flatpickr" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="VertimeassageInput" class="form-label">Keterangan</label>
+                        <input type="" id="keterangan" id="keterangan" class="form-control" placeholder="Keterangan"
+                            required />
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">Upload Dokumen</h4>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <p class="text-muted">Upload File .pdf</p>
+
+                                <div class="">
+                                    <div class="fallback">
+                                        <input type="file" name="file" multiple="multiple">
+                                    </div>
+
+                                    <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                        <li class="mt-2" id="dropzone-preview-list">
+
+                                        </li>
+                                    </ul>
+                                    <!-- end dropzon-preview -->
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- end card -->
+                        </div> <!-- end col -->
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="hstack gap-2 justify-content-end">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success" id="add-btn">Add Customer</button>
+                        <button type="submit" class="btn btn-success" id="add-btn">Add Dokumen</button>
                         <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                     </div>
                 </div>
