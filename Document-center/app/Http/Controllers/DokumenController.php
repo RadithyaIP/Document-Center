@@ -20,7 +20,7 @@ class DokumenController extends Controller
     public function index()
     {
         $users = auth()->user();
-        $kategoris = Kategori::all();
+        $kategori = Kategori::all();
         $divisis = Divisi::all();
         $kategoris = Kategori::leftjoin('dokumens', 'dokumens.kategori_id','=','kategoris.id')
                     ->select("kategoris.nama")
@@ -30,7 +30,7 @@ class DokumenController extends Controller
         $divisis = Divisi::all();
         $dokumens = Dokumen::all();
 
-        return view('Dokumen.index', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+        return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens'));
     }
 
     /**

@@ -80,7 +80,7 @@
                                         <div class="d-flex gap-2">
                                             <div class="edit">
                                                 <button class="btn btn-sm btn-success edit-item-btn"
-                                                    data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                    data-bs-toggle="modal" data-bs-target="#showModal{{ $dokumen->id }}">Edit</button>
                                             </div>
                                             <div class="remove">
                                                 <button class="btn btn-sm btn-danger remove-item-btn"
@@ -89,7 +89,79 @@
                                             </div>
                                         </div>
                                     </td>
+
                                 </tr>
+<!-- Modal -->
+<div class="modal fade" id="showModal{{ $dokumen->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light p-3">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    id="close-modal"></button>
+            </div>
+            <form method="POST" action="{{ route('Dokumen.update', $dokumen->id) }}" id="myForm" enctype="form-data">
+                @csrf
+                <div class="modal-body">
+
+                    <div class="mb-3" id="modal-id">
+                        <label for="no_dokumen" class="form-label">No Dokumen</label>
+                        <input type="text" id="no_dokumen" class="form-control" placeholder="Enter Nomor Dokumen" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select name="kategori" class="form-control" id="kategori">
+                            @foreach ($kateg as $kategs)
+                            <option value="{{$kategs->id}}">{{ "$kategs->nama" }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user_id" class="form-label">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            <option value="{{$users->id}}">{{ "$users->name" }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="divisi" class="form-label">Divisi</label>
+                        <select name="divisi" class="form-control" id="divisi">
+                            @foreach ($divisis as $divisi)
+                            @if ($divisi->id == $users->divisi_id)
+                            <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}</option>
+                            @endif
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
+                        <input type="text" id="nama_dokumen" class="form-control" placeholder="Enter Nama Dokumen"
+                            required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="StartleaveDate" class="form-label">Revisi Dokumen</label>
+                        <input type="date" id="revisi" class="form-control" data-provider="flatpickr" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="VertimeassageInput" class="form-label">Keterangan</label>
+                        <input type="" id="keterangan" id="keterangan" class="form-control" placeholder="Keterangan"
+                            required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="hstack gap-2 justify-content-end">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="edit-btn">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
                                 @endif
                                 @endforeach
                             </tbody>
@@ -124,7 +196,6 @@
     </div>
     <!-- end col -->
 </div>
-
 <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -133,7 +204,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     id="close-modal"></button>
             </div>
-            <form method="POST" action="{{ route('Dokumen.update', $dokumens->id) }}" id="myForm" enctype="form-data">
+            <form method="POST" action="{{ route('Dokumen.store') }}" id="myForm" enctype="form-data">
                 @csrf
                 <div class="modal-body">
 
@@ -215,12 +286,12 @@
                     <div class="hstack gap-2 justify-content-end">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-success" id="add-btn">Add Dokumen</button>
-                        <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 @endsection
