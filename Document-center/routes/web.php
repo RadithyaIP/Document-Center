@@ -25,7 +25,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('Categories', CategoriesController::class);
     Route::get('/Kategori/{id}', [App\Http\Controllers\CategoriesController::class, 'kategori'])->name('viewKategori');
     Route::get('/download/{file_name}', [App\Http\Controllers\CategoriesController::class, 'download'])->name('downloadFile');
-    
+  
+    Route::post('/Dokumen/update/{id}', [App\Http\Controllers\DokumenController::class, 'update'])->name('dokumen.update');
+    Route::get('/Dokumen/edit/{id}', [App\Http\Controllers\DokumenController::class, 'edit'])->name('dokumen.edit');
+    Route::get('/Dokumen/show/{id}', [App\Http\Controllers\DokumenController::class, 'show'])->name('dokumen.show');
     Route::get('/view/{filename}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('viewFile');
     Route::get('/delete/{id}', [App\Http\Controllers\DokumenController::class, 'destroy'])->name('Dokumen.destroy');
     

@@ -27,4 +27,10 @@ class Dokumen extends Model
     public function divisis(){
         return $this->belongsTo('App\Models\Divisi');
     }
+
+    public function getCreatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['created_at'])
+        ->format('d, M Y');
+    }
 }

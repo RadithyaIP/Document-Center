@@ -76,7 +76,7 @@ class DokumenController extends Controller
 
         $dokumens->save();
 
-        return redirect()->route('Dokumen.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->back();
     }
 
     /**
@@ -107,7 +107,7 @@ class DokumenController extends Controller
         $kategoris = Kategori::where('id', $id)->first();
         $divisis = Divisi::all();
         $dokumens = DB::table('dokumens')->where('id', $id)->first();
-        return \view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
+        return view('Categories.View', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**
@@ -119,19 +119,20 @@ class DokumenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dokumens=Dokumen::find($id);
-        $nama_dokumens = $request->get('nama_dokumen');
-        $no_dokumens = $request->get('no_dokumen');
+        $dokumens=Dokumen::where('id', $id)->first();
         
-        $dokumens->no_dokumen = $no_dokumens;
-        $dokumens->kategori_id = $request->kategori;
-        $dokumens->nama_dokumen = $nama_dokumens;
+        $dokumens->nama_dokumen = $request->get('nama_dokumen');
+        $dokumens->no_dokumen = $request->get('no_dokumen');
+        $dokumens->kategori_id = $request->get('kategori');
+        $dokumens->nama_dokumen = $request->get('nama_dokumen');
         $dokumens->keterangan = $request->get('keterangan');
         $dokumens->revisi = $request->get('revisi');
 
         $dokumens->save();
 
-        return redirect()->route('Dokumen.index')->with('success', 'Data berhasil diupdate');
+        //dd($request->get('nama_dokumen'));
+
+        return redirect()->route('viewKategori', $request->get('kategori'));
     }
 
     /**
