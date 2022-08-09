@@ -32,6 +32,7 @@ class DokumenController extends Controller
         $kategori = Kategori::all();
         $divisis = Divisi::all();
         $kategoris = Kategori::leftjoin('dokumens', 'dokumens.kategori_id','=','kategoris.id')
+                    ->where('dokumens.is_active', '=', 1)
                     ->select("kategoris.nama")
                     ->selectRaw('count(dokumens.id) as total_doc')
                     ->groupBy('kategoris.id')

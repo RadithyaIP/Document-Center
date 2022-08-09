@@ -281,11 +281,16 @@
 
                     <div class="mb-3">
                         <label for="kategori" class="form-label">Kategori</label>
-                        <select name="kategori" class="form-control" id="kategori">
-                            @foreach ($kateg as $kategori)
-                            <option value="{{$kategori->id}}">{{ "$kategori->nama" }}</option>
-                            @endforeach
-                        </select>
+                        @foreach ($kateg as $kategori)
+                        @if($kategori->id == $kategoris->id)
+                        <input name="" value="{{$kategori->nama}}"
+                        class="form-control" id="" 
+                        readonly>
+                        <input hidden name="kategori" value="{{$kategori->id}}"
+                        class="form-control" id="kategori" 
+                        readonly>
+                        @endif
+                        @endforeach
                     </div>
                     <div class="mb-3">
                         <label for="user_id" class="form-label">User</label>
