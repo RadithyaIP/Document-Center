@@ -86,12 +86,57 @@
                                             <div class="details">
                                                 <button class="btn btn-sm btn-success edit-item-btn"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#detalodal{{ $dokumen->id }}">Details</button>
+                                                    data-bs-target="#showModal{{ $dokumen->id }}">Details</button>
                                             </div>
+
                                             <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn"
+
+                                                <button type="submit" class="btn btn-sm btn-danger remove-item-btn"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#deleteRecordModal">Remove</button>
+                                                    data-bs-target="#modal_delete">Remove</button>
+
+                                                <!-- Modal Popup untuk delete-->
+
+                                                <div class="modal fade" id="modal_delete">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content" style="margin-top:100px;">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" style="text-align:center;">
+                                                                    Anda yakin akan menghapus data ini.. ?</h4>
+                                                            </div>
+
+                                                            <div class="modal-footer"
+                                                                style="margin:0px; border-top:0px; text-align:center;">
+                                                                <form
+                                                                    action="{{ route('Dokumen.destroy', $dokumen->id) }}"
+                                                                    method="POST">
+
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                                        id="delete_link"
+                                                                        data-bs-target="#deleteRecordModal">Hapus
+                                                                        </buttom>
+                                                                </form>
+
+                                                                <button type="button" class="btn btn-light btn-sm"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                </form>
+                                                <!-- Javascript untuk popup modal Delete-->
+                                                <script type="text/javascript">
+                                                function confirm_modal(delete_url) {
+                                                    $('#modal_delete').modal('show', {
+                                                        backdrop: 'static'
+                                                    });
+                                                    document.getElementById('delete_link').setAttribute('href',
+                                                        delete_url);
+                                                }
+                                                </script>
                                             </div>
                                         </div>
                                     </td>
@@ -307,78 +352,6 @@
                     <div class="hstack gap-2 justify-content-end">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-success">Add Dokumen</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal Details -->
-<div class="modal fade" id="showModal{{ $dokumen->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-light p-3">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    id="close-modal"></button>
-            </div>
-            <form method="POST" action="{{ route('dokumen.show', $dokumen->id) }}" id="myForm"
-                enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-
-                    <div class="mb-3" id="modal-id">
-                        <label for="no_dokumen" class="form-label">No Dokumen</label>
-                        <input type="text" name="no_dokumen" class="form-control" value="{{$dokumen->no_dokumen}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label">Kategori</label>
-                            @foreach ($kateg as $kategs)
-                            <option value="{{$kategs->id}}">{{ "$kategs->nama" }}
-                            </option>
-                            @endforeach
-                    </div>
-                    <div class="mb-3">
-                        <label for="user_id" class="form-label">User</label>
-                            <option value="{{$users->id}}">{{ "$users->name" }}</option>
-                    </div>
-                    <div class="mb-3">
-                        <label for="divisi" class="form-label">Divisi</label>
-                            @foreach ($divisis as $divisi)
-                            @if ($divisi->id == $users->divisi_id)
-                            <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}
-                            </option>
-                            @endif
-                            @endforeach
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="nama_dokumen" class="form-label">Nama
-                            Dokumen</label>
-                        <input type="text" name="nama_dokumen" class="form-control" value=""
-                            required>{{$dokumen->nama_dokumen}}
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="revisi" class="form-label">Revisi
-                            Dokumen</label>
-                        <input type="date" name="revisi" class="form-control" required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                        <input type="" name="keterangan" id="keterangan" class="form-control"
-                            value="{{$dokumen->keterangan}}" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="hstack gap-2 justify-content-end">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success" id="edit-btn">Update</button>
                     </div>
                 </div>
             </form>

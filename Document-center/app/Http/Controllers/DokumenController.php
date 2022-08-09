@@ -17,8 +17,17 @@ class DokumenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $kategoris = Kategori::where([
+            ['id', '!=', null, 'OR', 'kategoris.nama', '!=', null], //ketika form search kosong, maka request akan null. Ambil semua data di database
+            [function ($query) use ($request) {
+                if (($keyword = $request->keyword)) {
+                    $query->orWhere('id', 'LIKE', '%' . $keyword . '%')
+                        ->orWhere('nama_dokumen', 'LIKE', '%' . $keyword . '%')->get(); //ketika form search terisi, request tidak null. Ambil data sesuai keyword
+                }
+            }]
+        ]);
         $users = auth()->user();
         $kategori = Kategori::all();
         $divisis = Divisi::all();
@@ -28,8 +37,7 @@ class DokumenController extends Controller
                     ->groupBy('kategoris.id')
                     ->get();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::all();
-
+        $dokumens = Dokumen::latest()->paginate(5);
         return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens'));
     }
 
@@ -92,7 +100,7 @@ class DokumenController extends Controller
         $divisis = Divisi::all();
         $dokumens = Dokumen::with('kategoris', 'divisis')->where('id', $id)->first();
         
-        return \view('Dokumen.details' , compact('users', 'kategoris', 'divisis', 'dokumens'));
+        return \view('Categories.View' , compact('users', 'kategoris', 'divisis', 'dokumens'));
     }
 
     /**
@@ -148,5 +156,11 @@ class DokumenController extends Controller
         $dokumen->is_deleted = '1';
         $dokumen->save();
         return redirect()->route('Dokumen.index');
+
+        //fungsi eloquent untuk menghapus data
+        // Dokumen::find($id)->delete();
+        // return redirect()->route('Dokumen.index')
+        //     -> with('success', 'Mahasiswa Berhasil Dihapus');
+
     }
 }

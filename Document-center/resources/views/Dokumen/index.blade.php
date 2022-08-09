@@ -176,6 +176,9 @@
                                         @endforeach
                                     </tbody><!-- end tbody -->
                                 </table><!-- end table -->
+                                <div class="d-flex justify-content-end">
+                                    {{ $dokumens->links('pagination::bootstrap-4') }}
+                                </div>
                             </div>
                         </div>
                     </div> <!-- .card-->
@@ -288,7 +291,8 @@
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <h6 class="mb-1 lh-base">Flash sale starting <span
-                                            class="text-primary">Tomorrow.</span></h6>
+                                            class="text-primary">Tomorrow.</span>
+                                    </h6>
                                     <p class="text-muted mb-0">Flash sale by <a href="javascript:void(0);"
                                             class="link-secondary fw-medium">Zoetic Fashion</a></p>
                                     <small class="mb-0 text-muted">22 Oct, 2021</small>

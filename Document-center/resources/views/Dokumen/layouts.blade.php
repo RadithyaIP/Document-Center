@@ -274,10 +274,6 @@
                                 <i class="mdi mdi-speedometer"></i>
                                 <span data-key="t-dashboards">Dashboards</span>
                             </a>
-                            <a class="nav-link menu-link" href="{{ route('Dokumen.create') }}" role="button"
-                                aria-expanded="false" aria-controls="sidebarForms">
-                                <i class="mdi mdi-form-select"></i> <span data-key="t-forms">Forms</span>
-                            </a>
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
