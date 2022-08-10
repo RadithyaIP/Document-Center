@@ -17,6 +17,8 @@
                                     id="create-btn" data-bs-target="#showModal"><i
                                         class="ri-add-line align-bottom me-1"></i>
                                     Add</button>
+                                <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
+                                        class="ri-delete-bin-2-line"></i></button>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -88,6 +90,7 @@
                                             </div>
 
                                             <div class="remove">
+
                                                 <button type="submit" class="btn btn-sm btn-danger remove-item-btn"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#modal_delete">Remove</button>
@@ -280,9 +283,12 @@
                         <label for="kategori" class="form-label">Kategori</label>
                         @foreach ($kateg as $kategori)
                         @if($kategori->id == $kategoris->id)
-                        <input name="" value="{{$kategori->nama}}" class="form-control" id="" readonly>
-                        <input hidden name="kategori" value="{{$kategori->id}}" class="form-control" id="kategori"
-                            readonly>
+                        <input name="" value="{{$kategori->nama}}"
+                        class="form-control" id="" 
+                        readonly>
+                        <input hidden name="kategori" value="{{$kategori->id}}"
+                        class="form-control" id="kategori" 
+                        readonly>
                         @endif
                         @endforeach
                     </div>
@@ -357,89 +363,6 @@
         </div>
     </div>
 </div>
-
-<!-- Detail Modal -->
-<div class="modal fade" id="#showModal{{ $dokumen->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-light p-3">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    id="close-modal"></button>
-            </div>
-            <form method="POST" action="{{ route('dokumen.update', $dokumen->id) }}" id="myForm"
-                enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-
-                    <div class="mb-3" id="modal-id">
-                        <label for="no_dokumen" class="form-label">No Dokumen</label>
-                        <input type="text" name="no_dokumen" class="form-control" value="{{$dokumen->no_dokumen}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label">Kategori</label>
-                        <select name="kategori" class="form-control" id="kategori">
-                            @foreach ($kateg as $kategs)
-                            <option value="{{$kategs->id}}">{{ "$kategs->nama" }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="user_id" class="form-label">User</label>
-                        <select name="user_id" class="form-control" id="user_id">
-                            <option value="{{$users->id}}">{{ "$users->name" }}</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="divisi" class="form-label">Divisi</label>
-                        <select name="divisi" class="form-control" id="divisi">
-                            @foreach ($divisis as $divisi)
-                            @if ($divisi->id == $users->divisi_id)
-                            <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}
-                            </option>
-                            @endif
-                            @endforeach
-
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="nama_dokumen" class="form-label">Nama
-                            Dokumen</label>
-                        <input type="text" name="nama_dokumen" class="form-control" value="{{$dokumen->nama_dokumen}}"
-                            required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="revisi" class="form-label">Revisi
-                            Dokumen</label>
-                        <input type="date" name="revisi" class="form-control" required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                        <input type="" name="keterangan" id="keterangan" class="form-control"
-                            value="{{$dokumen->keterangan}}" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="hstack gap-2 justify-content-end">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script>
-$('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
-})
-</script>
 
 
 @endsection
