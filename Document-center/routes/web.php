@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Dokumen/lihat/{id}', [App\Http\Controllers\DokumenController::class, 'show'])->name('Dokumen.show');
     Route::get('/view/{filename}', [App\Http\Controllers\CategoriesController::class, 'view'])->name('viewFile');
     Route::delete('/delete/{id}', [App\Http\Controllers\DokumenController::class, 'destroy'])->name('Dokumen.destroy');
-    
+    Route::get('/pegawai/cari','DokumenController@cari');
 });
 
 

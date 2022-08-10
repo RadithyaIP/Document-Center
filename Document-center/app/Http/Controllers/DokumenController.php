@@ -19,15 +19,7 @@ class DokumenController extends Controller
      */
     public function index(Request $request)
     {
-        $kategoris = Kategori::where([
-            ['id', '!=', null, 'OR', 'kategoris.nama', '!=', null], //ketika form search kosong, maka request akan null. Ambil semua data di database
-            [function ($query) use ($request) {
-                if (($keyword = $request->keyword)) {
-                    $query->orWhere('id', 'LIKE', '%' . $keyword . '%')
-                        ->orWhere('nama_dokumen', 'LIKE', '%' . $keyword . '%')->get(); //ketika form search terisi, request tidak null. Ambil data sesuai keyword
-                }
-            }]
-        ]);
+        
         $users = auth()->user();
         $kategori = Kategori::all();
         $divisis = Divisi::all();
@@ -38,7 +30,7 @@ class DokumenController extends Controller
                     ->groupBy('kategoris.id')
                     ->get();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::latest()->paginate(5);
+        $dokumens = Dokumen::latest()->paginate(10);
         return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens'));
     }
 
@@ -164,4 +156,19 @@ class DokumenController extends Controller
         //     -> with('success', 'Mahasiswa Berhasil Dihapus');
 
     }
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$dokumens = DB::table('dokumens')
+		->where('nama_dokumen','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('index',['dokumens' => $dokumens]);
+ 
+	}
 }

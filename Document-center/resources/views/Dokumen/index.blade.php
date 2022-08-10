@@ -176,7 +176,10 @@
                                         @endforeach
                                     </tbody><!-- end tbody -->
                                 </table><!-- end table -->
-                                
+                                <div class="d-flex justify-content-end">
+
+                                    {{ $dokumens->links('pagination::bootstrap-4') }}
+                                </div>
                             </div>
                         </div>
                     </div> <!-- .card-->

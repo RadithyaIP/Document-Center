@@ -81,10 +81,10 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                                 aria-labelledby="page-header-search-dropdown">
-                                <form class="p-3">
+                                <form class="p-3" action="/pegawai/cari" method="GET">
                                     <div class="form-group m-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search ..."
+                                            <input type="text" class="form-control" name="cari" placeholder="Search ..."
                                                 aria-label="Recipient's username">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="mdi mdi-magnify"></i>
