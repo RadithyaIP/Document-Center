@@ -30,7 +30,7 @@ class DokumenController extends Controller
                     ->groupBy('kategoris.id')
                     ->get();
         $divisis = Divisi::all();
-        $dokumens = Dokumen::latest()->paginate(10);
+        $dokumens = Dokumen::latest()->paginate(5);
         return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens'));
     }
 
@@ -165,10 +165,41 @@ class DokumenController extends Controller
     		// mengambil data dari table pegawai sesuai pencarian data
 		$dokumens = DB::table('dokumens')
 		->where('nama_dokumen','like',"%".$cari."%")
-		->paginate();
+		->paginate(5);
  
     		// mengirim data pegawai ke view index
-		return view('index',['dokumens' => $dokumens]);
+		return view('Dokumen.index',['dokumens' => $dokumens]);
  
 	}
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $users = auth()->user();
+        $kategoris = Kategori::all();
+        //DB::enableQueryLog();
+        $dokumensw = Dokumen::where('is_active',1)
+                            ->Where('nama_dokumen', 'like', "%" . $keyword . "%")
+                            ->orWhere('no_dokumen', 'like', "%" . $keyword . "%")
+                            ->get();
+        $dokumens=DB::table('dokumens')
+                    ->whereRaw('is_active=1 and (nama_dokumen like "%'.$keyword.'%" or no_dokumen like "%'.$keyword.'%")')
+                    ->paginate(5);
+                    //dd($dokumennya);
+        //dd(DB::getQueryLog());
+
+        // $dokumens = Dokumen::where([
+        //     ['no_dokumen', '!=', null, 'OR', 'nama_dokumen', '!=', null], //ketika form search kosong, maka request akan null. Ambil semua data di database
+        //     [function ($query) use ($request) {
+        //         if (($keyword = $request->keyword)) {
+        //             $query->orWhere('no_dokumen', 'LIKE', '%' . $keyword . '%')
+        //                 ->orWhere('nama_dokumen', 'LIKE', '%' . $keyword . '%')->get(); //ketika form search terisi, request tidak null. Ambil data sesuai keyword
+        //         }
+        //     }]
+        // ]);
+        return view('Dokumen.index', compact('dokumens', 'kategoris', 'users'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+        
+    }
 }

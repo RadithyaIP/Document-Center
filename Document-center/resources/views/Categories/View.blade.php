@@ -17,16 +17,6 @@
                                     id="create-btn" data-bs-target="#showModal"><i
                                         class="ri-add-line align-bottom me-1"></i>
                                     Add</button>
-                                <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
-                                        class="ri-delete-bin-2-line"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="d-flex justify-content-sm-end">
-                                <div class="search-box ms-2">
-                                    <input type="text" class="form-control search" placeholder="Search...">
-                                    <i class="ri-search-line search-icon"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,9 +74,8 @@
                                                     data-bs-target="#showModal{{ $dokumen->id }}">Edit</button>
                                             </div>
                                             <div class="details">
-                                                <button class="btn btn-sm btn-success edit-item-btn"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#showModal{{ $dokumen->id }}">Details</button>
+                                                <button type="button" class="btn btn-sm btn-success"
+                                                    data-bs-toggle="modal" data-bs-target="#flipModal">Details</button>
                                             </div>
 
                                             <div class="remove">
@@ -116,7 +105,8 @@
                                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                                         id="delete_link"
                                                                         data-bs-target="#deleteRecordModal">Hapus
-                                                                        </buttom>
+                                                                    </button>
+
                                                                 </form>
 
                                                                 <button type="button" class="btn btn-light btn-sm"
@@ -283,12 +273,9 @@
                         <label for="kategori" class="form-label">Kategori</label>
                         @foreach ($kateg as $kategori)
                         @if($kategori->id == $kategoris->id)
-                        <input name="" value="{{$kategori->nama}}"
-                        class="form-control" id="" 
-                        readonly>
-                        <input hidden name="kategori" value="{{$kategori->id}}"
-                        class="form-control" id="kategori" 
-                        readonly>
+                        <input name="" value="{{$kategori->nama}}" class="form-control" id="" readonly>
+                        <input hidden name="kategori" value="{{$kategori->id}}" class="form-control" id="kategori"
+                            readonly>
                         @endif
                         @endforeach
                     </div>
@@ -365,4 +352,80 @@
 </div>
 
 
-@endsection
+<!-- Modal Detail -->
+<div id="flipModal" class="modal fade flip" tabindex="-1" aria-labelledby="flipModalLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="flipModalLabel">Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="modal-body">
+
+                        <div class="mb-3" id="modal-id">
+                            <label for="no_dokumen" class="form-label">No Dokumen</label>
+                            <input type="text" name="no_dokumen" class="form-control"
+                                value="{{$dokumen->no_dokumen}}"  readonly/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="kategori" class="form-label">Kategori</label>
+                            <select name="kategori" class="form-control" id="kategori" readonly>
+                                @foreach ($kateg as $kategs)
+                                <option value="{{$kategs->id}}">{{ "$kategs->nama" }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_id" class="form-label">User</label>
+                            <select name="user_id" class="form-control" id="user_id" readonly>
+                                <option value="{{$users->id}}">{{ "$users->name" }}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="divisi" class="form-label">Divisi</label>
+                            <select name="divisi" class="form-control" id="divisi" readonly>
+                                @foreach ($divisis as $divisi)
+                                @if ($divisi->id == $users->divisi_id)
+                                <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}
+                                </option>
+                                @endif
+                                @endforeach
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
+                            <input type="text" name="nama_dokumen" class="form-control"
+                                value="{{$dokumen->nama_dokumen}}" required readonly/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="revisi" class="form-label">Revisi Dokumen</label>
+                            <input type="" name="revisi" id="revisi" class="form-control"
+                                value="{{$dokumen->created_at}}" required readonly/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="VertimeassageInput" class="form-label">Keterangan</label>
+                            <input type="" name="keterangan" id="keterangan" class="form-control"
+                                value="{{$dokumen->keterangan}}" required readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+    @endsection

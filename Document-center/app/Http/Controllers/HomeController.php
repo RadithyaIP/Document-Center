@@ -47,4 +47,19 @@ class HomeController extends Controller
         
         return view('Dokumen.index', compact ('users', 'kategoris', 'divisis', 'dokumens'));
     }
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$dokumens = DB::table('dokumens')
+		->where('nama_dokumen','like',"%".$cari."%")
+		->paginate(5);
+ 
+    		// mengirim data pegawai ke view index
+		return view('Dokumen.index',['dokumens' => $dokumens]);
+ 
+	}
 }

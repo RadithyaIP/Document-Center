@@ -2,9 +2,9 @@
 
 @section('content')
 
+
 <div class="row">
     <div class="col">
-
         <div class="h-100">
             <div class="row mb-3 pb-1">
                 <div class="col-12">
@@ -31,15 +31,6 @@
                             <form action="{{ route('Dokumen.create') }}">
                                 <div class="row g-3 mb-0 align-items-center">
                                     <div class="col-sm-auto">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control border-0 dash-filter-picker shadow"
-                                                data-provider="flatpickr" data-range-date="true"
-                                                data-date-format="d M, Y"
-                                                data-deafult-date="01 Jan 2022 to 31 Jan 2022">
-                                            <div class="input-group-text bg-primary border-primary text-white">
-                                                <i class="ri-calendar-2-line"></i>
-                                            </div>
-                                        </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-auto">
@@ -109,16 +100,32 @@
                 @endforeach
             </div> <!-- end row-->
 
+
+            <!--table row-->
+
+            <!--end row-->
+
             <div class="row">
 
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Recent Orders</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">
+
+                                <a href="{{ route('Dokumen.index') }}">
+                                    <button type="button" class="btn btn-danger">Reset</button>
+                                </a>
+                            </h4>
                             <div class="flex-shrink-0">
-                                <button type="button" class="btn btn-soft-info btn-sm shadow-none">
-                                    <i class="ri-file-list-3-line align-middle"></i> Generate Report
-                                </button>
+
+                                <form class="form" method="get" action="{{ route('search') }}">
+                                    <div class="form-group w-100 mb-3">
+                                        <input type="text" name="search" class="form-control w-75 d-inline" id="search"
+                                            placeholder="Masukkan Nama Dokumen">
+                                        <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div><!-- end card header -->
 
@@ -177,8 +184,10 @@
                                     </tbody><!-- end tbody -->
                                 </table><!-- end table -->
                                 <div class="d-flex justify-content-end">
+                                    <div class="d-flex">
+                                        {{ $dokumens->links('pagination::bootstrap-4') }}
+                                    </div>
 
-                                    {{ $dokumens->links('pagination::bootstrap-4') }}
                                 </div>
                             </div>
                         </div>

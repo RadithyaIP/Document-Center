@@ -15,7 +15,7 @@ checkAll &&
               });
     });
 var DokumenList,
-    perPage = 8,
+    perPage = 5,
     options = {
         valueNames: ["id", "no_dokumen", "kategori", "user_id", "divisi", "nama_dokumen", "revisi","keterangan"],
         page: perPage,
@@ -99,11 +99,13 @@ document.querySelector(".pagination-next") &&
                             .previousSibling.children[0].click());
             });
 
+           
 
-$(document).on('ajaxComplete ready', function () {
-    $('.modalMd').off('click').on('click', function () {
-        $('#modalMdContent').load($(this).attr('value'));
-        $('#modalMdTitle').html($(this).attr('title'));
-    });
-});
+
+// $(document).on('ajaxComplete ready', function () {
+//     $('.modalMd').off('click').on('click', function () {
+//         $('#modalMdContent').load($(this).attr('value'));
+//         $('#modalMdTitle').html($(this).attr('title'));
+//     });
+// });
 
