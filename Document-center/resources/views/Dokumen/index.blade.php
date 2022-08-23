@@ -35,7 +35,7 @@
                                     <!--end col-->
                                     <div class="col-auto">
                                         <button type="onClick" class="btn btn-soft-success shadow-none">
-                                            <i class="ri-add-circle-line align-middle me-1"></i> Upload File</button>
+                                            <i class="ri-add-circle-line align-middle me-1"></i> Print all</button>
                                     </div>
                                     <!--end col-->
                                     <div class="col-auto">

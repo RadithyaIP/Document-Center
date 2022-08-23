@@ -34,11 +34,11 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\DokumenController::class, 'destroy'])->name('Dokumen.destroy');
     Route::get('/dokumen/cari','DokumenController@cari');
     Route::get('/search', [DokumenController::class, 'search'])->name('search');
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
 
 Auth::routes();
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

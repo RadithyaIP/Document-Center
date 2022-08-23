@@ -77,7 +77,20 @@
                                                 <button type="button" class="btn btn-sm btn-success"
                                                     data-bs-toggle="modal" data-bs-target="#flipModal">Details</button>
                                             </div>
-
+                                            <div class="download">
+                                                <a href="{{ route('downloadFile', $dokumen->file_name) }}">
+                                                    <button type="submit" class="btn btn-sm btn-success">
+                                                        Download
+                                                    </button>
+                                                </a>
+                                            </div>
+                                            <div class="view">
+                                            <a href="{{ route('viewFile', $dokumen->file_name) }}">
+                                                    <button type="submit" class="btn btn-sm btn-primary">
+                                                        View
+                                                    </button>
+                                                </a>
+                                            </div>
                                             <div class="remove">
 
                                                 <button type="submit" class="btn btn-sm btn-danger remove-item-btn"
@@ -367,8 +380,8 @@
 
                         <div class="mb-3" id="modal-id">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
-                            <input type="text" name="no_dokumen" class="form-control"
-                                value="{{$dokumen->no_dokumen}}"  readonly/>
+                            <input type="text" name="no_dokumen" class="form-control" value="{{$dokumen->no_dokumen}}"
+                                readonly />
                         </div>
 
                         <div class="mb-3">
@@ -402,19 +415,19 @@
                         <div class="mb-3">
                             <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
                             <input type="text" name="nama_dokumen" class="form-control"
-                                value="{{$dokumen->nama_dokumen}}" required readonly/>
+                                value="{{$dokumen->nama_dokumen}}" required readonly />
                         </div>
 
                         <div class="mb-3">
                             <label for="revisi" class="form-label">Revisi Dokumen</label>
                             <input type="" name="revisi" id="revisi" class="form-control"
-                                value="{{$dokumen->created_at}}" required readonly/>
+                                value="{{$dokumen->created_at}}" required readonly />
                         </div>
 
                         <div class="mb-3">
                             <label for="VertimeassageInput" class="form-label">Keterangan</label>
                             <input type="" name="keterangan" id="keterangan" class="form-control"
-                                value="{{$dokumen->keterangan}}" required readonly/>
+                                value="{{$dokumen->keterangan}}" required readonly />
                         </div>
                     </div>
                 </div>

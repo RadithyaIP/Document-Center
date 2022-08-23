@@ -29,15 +29,17 @@ class HomeController extends Controller
     public function index()
     {
         $users = auth()->user();
-        //$kategoris = Kategori::all();
+        $kategoris = Kategori::all();
         
         $kategoris = Kategori::leftjoin('dokumens', 'dokumens.kategori_id','=','kategoris.id')
+                    ->where('dokumens.is_active', '=', 1)
                     ->select("kategoris.nama")
                     ->selectRaw('count(dokumens.id) as total_doc')
                     ->groupBy('kategoris.id')
                     ->get();
         $divisis = Divisi::all();
         $dokumens = Dokumen::all();
+        $dokumens = Dokumen::latest()->paginate(5);
         //DB::enableQueryLog();
         // $dokumens = Dokumen::select("*")
         // ->selectRaw('count(*) as total_doc')
