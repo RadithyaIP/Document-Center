@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('Dokumen', DokumenController::class);
     Route::resource('Categories', CategoriesController::class);
     Route::get('/Kategori/{id}', [App\Http\Controllers\CategoriesController::class, 'kategori'])->name('viewKategori');
+    Route::get('/Print-All-Dokumen', [App\Http\Controllers\CategoriesController::class, 'print'])->name('print');
     Route::get('/download/{file_name}', [App\Http\Controllers\CategoriesController::class, 'download'])->name('downloadFile');
   
     Route::post('/Dokumen/update/{id}', [App\Http\Controllers\DokumenController::class, 'update'])->name('dokumen.update');

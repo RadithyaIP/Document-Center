@@ -51,7 +51,13 @@ class CategoriesController extends Controller
         
     }
 
-   
+    public function print()
+    {
+        $dokumens = Dokumen::all();
+        $kategoris=Kategori::all();
+        $pdf = PDF::loadview('Categories.print-all', compact('dokumens','kategoris'));
+        return $pdf->stream();
+    }
     
     /**
      * Show the form for creating a new resource.
