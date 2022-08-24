@@ -11,11 +11,27 @@
             content: "";
             display: table;
             clear: both;
-        }
 
+            left: 16px;
+        }
         a {
             color: #5D6975;
             text-decoration: underline;
+        }
+
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+            width: 15%;
+        }
+        .topleft {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 18px;
+            width: 15%;
         }
 
         body {
@@ -32,19 +48,25 @@
 
         header {
             width: 100%;
-            padding: 10px 0;
-            margin-bottom: 30px;
+            text-align: center;
         }
 
         h1 {
-            border-bottom: 1px solid #5D6975;
             color: #5D6975;
-            font-size: 2.4em;
-            line-height: 1.4em;
+            font-size: 2.0em;
+            font-weight: normal;
+            text-align: center;
+        }
+        h2{
+            border-bottom: 1px solid #5D6975;
+            font-size: 1.5em;
             font-weight: normal;
             text-align: left;
-            margin: 0 0 20px 0;
-            background: url(dimension.png);
+        }
+        h3 {
+            border-top: 1px solid #5D6975;
+            font-weight: normal;
+            text-align: center;
         }
 
         #identity {
@@ -86,8 +108,7 @@
         table th {
             padding: 5px 20px;
             color: #5D6975;
-            border-bottom: 1px solid #5D6975;
-            white-space: nowrap;
+            border: 1px solid #5D6975;
             font-weight: bold;
         }
 
@@ -97,7 +118,7 @@
         }
 
         table td {
-            padding: 15px;
+            padding: 5px;
             text-align: center;
         }
 
@@ -143,44 +164,49 @@
 
 <body>
     <header class="clearfix">
-        <h1>List Dokumen Divisi TI</h1>
-        {{--  <div class="d-flex justify-content-between pl-4 pr-4 pt-3 pb-4 mt-3" style="margin-bottom:50px ">
-            <img src="{{ asset('assets/images/logo/logo-bumn.png') }}" alt="image" style="width: 15%;">
-            <img src="{{ asset('assets/images/logo-pal.png') }}" alt="Card image cap" style="width: 15%;">
-        </div>  --}}
-        {{-- <div id="identity">
-            <div id="project" >
-                <div><strong>Pembeli:</strong></div>
-                <div>567</div>
-                <div>123</div>
-                <div>zxc</div>
-                <div>qwe</div>
-                <div>asd</div>
-            </div>
-            <div id="company" class="clearfix">
-                <div><strong>Metode Pembayaran:</strong></div>
-                <div>ghj</div>
-                <div style="margin-top: 25px"><strong>Tanggal Pemesanan:</strong></div>
-                <div>cvb</div>
-            </div>
-        </div> --}}
+        <div class="d-flex justify-content-between pl-4 pr-4 pt-3 pb-4 mt-3" style="margin-bottom:50px ">
+            <img src="assets/images/logo/BUMN.png" class = "topleft">
+            <img src="assets/images/logo/PAL.png" class = "topright">
+        </div>
     </header>
     <main>
+        <h1>List Dokumen Divisi TI</h1>
+        <h3> Tanggal</h3>
+        @foreach($kategoris as $kat)
+        <?php
+            $count = 0;
+        ?>
+        @foreach($dokumens as $dok)
+        @if($dok->kategori_id == $kat->id)
+        <?php
+            $count++;
+        ?>
+        @endif
+        @endforeach
+        @if($count>0)
+        <h2>{{$kat->nama}}</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Kategori</th>
+                    <th>No</th>
+                    <th>Nama Dokumen</th>
+                    <th>Tanggal Revisi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($kategoris as $kat)
-                    <tr>
-                        <td class="qty">{{ $loop->iteration }}</td>
-                        <td class="service">{{ $kat->nama }}</td>  
-                    </tr>
+                @foreach ($dokumens as $dok)
+                @if($dok->kategori_id == $kat->id)
+                <tr>
+                    <td class="qty">{{ $loop->iteration }}</td>
+                    <td class="service">{{ $dok->nama_dokumen }}</td>
+                    <td>{{$dok->revisi}}</td>
+                </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
+        @endif
+        @endforeach
     </main>
 
 </body>
