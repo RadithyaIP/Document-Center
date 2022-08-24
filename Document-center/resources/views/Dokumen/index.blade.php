@@ -28,12 +28,7 @@
                                 <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                         </div>
                         <div class="mt-3 mt-lg-0">
-                        <div class="col-auto">
-                                        <a href="{{ route('print') }}">
-                                        <button type="onClick" class="btn btn-soft-success shadow-none">
-                                            <i class="ri-add-circle-line align-middle me-1"></i> Print all</button></a>
-                                    </div>
-                            <form action="">
+                            <form action="{{ route('print') }}">
                                 <div class="row g-3 mb-0 align-items-center">
                                     <div class="col-sm-auto">
                                     </div>
