@@ -20,12 +20,14 @@ class CategoriesController extends Controller
 
     public function kategori($id, Request $request)
     {
+        
+        $realCount = Dokumen::count();
         $users = auth()->user();
         $kategoris = Kategori::where('id', $id)->first();
         $kateg = Kategori::all();
         $divisis = Divisi::all();
         $dokumens = Dokumen::all();
-        return view('Categories.View', compact ('users','kateg', 'kategoris', 'divisis', 'dokumens'));
+        return view('Categories.View', compact ('users','kateg', 'kategoris', 'divisis', 'dokumens', 'realCount'));
     }
 
     //Download file

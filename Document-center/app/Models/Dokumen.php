@@ -30,13 +30,8 @@ class Dokumen extends Model
 
     public function getCreatedAtAttribute()
     {
-        return \Carbon\Carbon::parse($this->attributes['created_at'])
-        ->format('d, M Y');
-    }
-
-    public function getRevisitAttribute()
-    {
         return \Carbon\Carbon::parse($this->attributes['revisi'])
         ->format('d, M Y');
     }
+
 }

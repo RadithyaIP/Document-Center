@@ -85,7 +85,7 @@
                                                 </a>
                                             </div>
                                             <div class="view">
-                                            <a href="{{ route('viewFile', $dokumen->file_name) }}">
+                                                <a href="{{ route('viewFile', $dokumen->file_name) }}">
                                                     <button type="submit" class="btn btn-sm btn-primary">
                                                         View
                                                     </button>
@@ -366,6 +366,8 @@
 
 
 <!-- Modal Detail -->
+
+@if($realCount != 0)
 <div id="flipModal" class="modal fade flip" tabindex="-1" aria-labelledby="flipModalLabel" aria-hidden="true"
     style="display: none;">
     <div class="modal-dialog modal-dialog-centered">
@@ -377,68 +379,70 @@
             <div class="modal-body">
                 <div class="modal-body">
                     <div class="modal-body">
-
-                        <div class="mb-3" id="modal-id">
+                        <div
+                            class="mb-3" id="modal-id">
                             <label for="no_dokumen" class="form-label">No Dokumen</label>
                             <input type="text" name="no_dokumen" class="form-control" value="{{$dokumen->no_dokumen}}"
                                 readonly />
-                        </div>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="kategori" class="form-label">Kategori</label>
-                            <select name="kategori" class="form-control" id="kategori" readonly>
-                                @foreach ($kateg as $kategs)
-                                <option value="{{$kategs->id}}">{{ "$kategs->nama" }}
-                                </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="user_id" class="form-label">User</label>
-                            <select name="user_id" class="form-control" id="user_id" readonly>
-                                <option value="{{$users->id}}">{{ "$users->name" }}</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="divisi" class="form-label">Divisi</label>
-                            <select name="divisi" class="form-control" id="divisi" readonly>
-                                @foreach ($divisis as $divisi)
-                                @if ($divisi->id == $users->divisi_id)
-                                <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}
-                                </option>
-                                @endif
-                                @endforeach
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select name="kategori" class="form-control" id="kategori" readonly>
+                            @foreach ($kateg as $kategs)
+                            <option value="{{$kategs->id}}">{{ "$kategs->nama" }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user_id" class="form-label">User</label>
+                        <select name="user_id" class="form-control" id="user_id" readonly>
+                            <option value="{{$users->id}}">{{ "$users->name" }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="divisi" class="form-label">Divisi</label>
+                        <select name="divisi" class="form-control" id="divisi" readonly>
+                            @foreach ($divisis as $divisi)
+                            @if ($divisi->id == $users->divisi_id)
+                            <option value="{{$users->divisi_id}}">{{ "$divisi->nama" }}
+                            </option>
+                            @endif
+                            @endforeach
 
-                            </select>
-                        </div>
+                        </select>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
-                            <input type="text" name="nama_dokumen" class="form-control"
-                                value="{{$dokumen->nama_dokumen}}" required readonly />
-                        </div>
+                    <div class="mb-3">
+                        <label for="nama_dokumen" class="form-label">Nama Dokumen</label>
+                        <input type="text" name="nama_dokumen" class="form-control" value="{{$dokumen->nama_dokumen}}"
+                            required readonly />
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="revisi" class="form-label">Revisi Dokumen</label>
-                            <input type="" name="revisi" id="revisi" class="form-control"
-                                value="{{$dokumen->created_at}}" required readonly />
-                        </div>
+                    <div class="mb-3">
+                        <label for="revisi" class="form-label">Revisi Dokumen</label>
+                        <input type="" name="revisi" id="revisi" class="form-control" value="{{$dokumen->created_at}}"
+                            required readonly />
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="VertimeassageInput" class="form-label">Keterangan</label>
-                            <input type="" name="keterangan" id="keterangan" class="form-control"
-                                value="{{$dokumen->keterangan}}" required readonly />
-                        </div>
+                    <div class="mb-3">
+                        <label for="VertimeassageInput" class="form-label">Keterangan</label>
+                        <input type="" name="keterangan" id="keterangan" class="form-control"
+                            value="{{$dokumen->keterangan}}" required readonly />
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            </div>
 
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@endif
 
 
 
-    @endsection
+@endsection

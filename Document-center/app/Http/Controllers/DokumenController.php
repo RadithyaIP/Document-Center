@@ -20,6 +20,7 @@ class DokumenController extends Controller
     public function index(Request $request)
     {
         
+        $realCount = Dokumen::count();
         $users = auth()->user();
         $kategori = Kategori::all();
         $divisis = Divisi::all();
@@ -31,7 +32,7 @@ class DokumenController extends Controller
                     ->get();
         $divisis = Divisi::all();
         $dokumens = Dokumen::latest()->paginate(5);
-        return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens'));
+        return view('Dokumen.index', compact ('users', 'kategoris','kategori', 'divisis', 'dokumens', 'realCount'));
     }
 
     /**

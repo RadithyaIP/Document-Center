@@ -185,6 +185,7 @@
         @foreach($kategoris as $kat)
         <?php
             $count = 0;
+            $counter = 0;
         ?>
         @foreach($dokumens as $dok)
         @if($dok->kategori_id == $kat->id)
@@ -207,10 +208,13 @@
             <tbody>
                 @foreach ($dokumens as $dok)
                 @if($dok->kategori_id == $kat->id)
+                <?php
+                    $counter++;
+                ?>
                 <tr>
-                    <td class="qty">{{ $loop->iteration }}</td>
+                    <td class="qty">{{ $counter }}</td>
                     <td class="service">{{ $dok->nama_dokumen }}</td>
-                    <td>{{$dok->revisi}}</td>
+                    <td>{{$dok->created_at}}</td>
                 </tr>
                 @endif
                 @endforeach
